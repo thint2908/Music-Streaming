@@ -10,6 +10,7 @@
 			rel="stylesheet"
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 			crossorigin="anonymous" />
+		<link rel="stylesheet" href="css/responsive.css" />
 		<link rel="stylesheet" href="css/index.css" />
 		<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
 		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
@@ -19,9 +20,13 @@
 	<body>
 		<nav class="navbar">
 			<div class="container">
-				<h1 class="nav-left">Music Page</h1>
+				<h1 class="nav-left"><i class="mx-2 bi bi-boombox"></i>Music Page</h1>
+				<div class="search">
+					<i class="bi bi-search"></i>
+					<input type="text" name="search-song" id="search-song" placeholder="Tìm kiếm" />
+				</div>
 				<div class="nav-right">
-					<a href="#" class="login-btn text-decoration-none text-black p-1"
+					<a href="#" class="mx-2 login-btn text-decoration-none text-black p-1"
 						>Log In
 						<i class="bi bi-box-arrow-in-right"></i>
 					</a>
@@ -37,14 +42,29 @@
 		<!-- body -->
 		<div class="container-fluid">
 			<div class="row top-music">
-				<div class="col-lg-2 body-left">
-					<div class="body-left-container">
+				<div class="col-lg-2 left-body">
+					<div class="left-body-container">
+						<span class="leftBody-title">Recommend</span>
 						<ul class="list-option">
-							<li>For you</li>
-							<li>Library</li>
-							<li>Radio Station</li>
-							<li>Music Video</li>
-							<li>Recent</li>
+							<li class="leftBody-recommend item1">For you</li>
+							<li class="leftBody-recommend item2">Library</li>
+							<li class="leftBody-recommend item3">Radio Station</li>
+							<li class="leftBody-recommend item4">Music Video</li>
+							<li class="leftBody-recommend item5">Recent</li>
+						</ul>
+						<span class="leftBody-title">My music</span>
+						<ul class="list-option">
+							<li class="leftBody-myMusic">Liked song</li>
+							<li class="leftBody-myMusic">Album</li>
+							<li class="leftBody-myMusic">Artist</li>
+							<li class="leftBody-myMusic">Recent</li>
+						</ul>
+						<span class="leftBody-title">Playlist</span>
+						<ul class="list-option">
+							<li class="leftBody-playList item1">Rap</li>
+							<li class="leftBody-playList item2">Pop</li>
+							<li class="leftBody-playList item3">Trap</li>
+							<li class="leftBody-playList item4">Dance</li>
 						</ul>
 					</div>
 				</div>
@@ -53,7 +73,7 @@
 						<div class="row">
 							<div class="col-lg-3 text-center">
 								<!-- <input type="search" /> -->
-								<div class="title">Top Song</div>
+								<div class="title">Top Song 2022</div>
 								<div class="img-singer">
 									<img src="./img/an-huynh.jpg" alt="an-huynh" />
 								</div>
@@ -201,90 +221,23 @@
 										<span class="visually-hidden">Next</span>
 									</button>
 								</div>
-								<!-- <div id="carouselExampleControls" class="list-body carousel" data-bs-ride="carousel">
-									<div class="carousel-item active">
-										<div class="list-body">
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-										</div>
-									</div>
-									<div class="carousel-item">
-										<div class="list-body">
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-										</div>
-									</div>
-									<div class="carousel-item">
-										<div class="list-body">
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-										</div>
-									</div>
-									<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-										<span class="visually-hidden">Previous</span>
-									</button>
-									<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-										<span class="carousel-control-next-icon" aria-hidden="true"></span>
-										<span class="visually-hidden">Next</span>
-									</button>
-								</div> -->
 							</div>
 						</div>
 						<!-- ./ Carousel list top song-->
 					</div>
 				</div>
-				<div class="col-lg-2">
-					<div class="recent-song body-right">
-						<div class="singer-list body-right-container">
+				<div class="col-lg-2 right-body">
+					<div class="recent-song right-body-container">
+						<h5 class="top-singer">Top Singer 2022</h5>
+						<div class="singer-list">
+							<div class="singer">Đen Vâu</div>
+							<div class="singer">Sơn Tùng</div>
+							<div class="singer">Tài Smile</div>
+							<div class="singer">Trúc Nhân</div>
+							<div class="singer">Đen Vâu</div>
+							<div class="singer">Sơn Tùng</div>
+							<div class="singer">Tài Smile</div>
+							<div class="singer">Trúc Nhân</div>
 							<div class="singer">Đen Vâu</div>
 							<div class="singer">Sơn Tùng</div>
 							<div class="singer">Tài Smile</div>
@@ -347,7 +300,7 @@
 					show_data(data);
 				},
 				error: function (error) {
-					alert("Load fail");
+					// alert("Load fail");
 				},
 			});
 		}
@@ -369,19 +322,18 @@
 								`;
 				list_body.append(_list);
 			}
-
 			$(".bi-heart").click(function () {
 				$(this).hide();
-				$(".bi-heart-fill").show();
+				$(this)(".bi-heart-fill").show();
 			});
 			$(".bi-heart-fill").click(function () {
 				$(this).hide();
-				$(".bi-heart").show();
+				$(this)(".bi-heart").show();
 			});
 		}
 
 		$(function () {
-			loadMusic("http://localhost/CuoiKi/source/api/loadMusic.php");
+			loadMusic("./api/loadMusic.php");
 		});
 	</script>
 	<script src="js/index.js?v=1"></script>
