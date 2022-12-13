@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 10, 2022 lúc 12:50 PM
+-- Thời gian đã tạo: Th12 13, 2022 lúc 02:28 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -32,6 +32,7 @@ CREATE TABLE `account` (
   `username` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `password` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `email` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `name` varchar(40) NOT NULL,
   `priority_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -39,8 +40,8 @@ CREATE TABLE `account` (
 -- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`id`, `username`, `password`, `email`, `priority_id`) VALUES
-(1, 'admin', '123456', 'admin@gmail.com', 1);
+INSERT INTO `account` (`id`, `username`, `password`, `email`, `name`, `priority_id`) VALUES
+(1, 'admin', '123456', 'admin@gmail.com', '', 1);
 
 -- --------------------------------------------------------
 
@@ -91,22 +92,24 @@ CREATE TABLE `music_list` (
   `description` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `vote` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `url` char(40) DEFAULT NULL
+  `url` char(40) DEFAULT NULL,
+  `image` char(50) NOT NULL,
+  `listens` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `music_list`
 --
 
-INSERT INTO `music_list` (`id`, `name`, `singer_id`, `lyrics`, `description`, `vote`, `category_id`, `url`) VALUES
-(1, 'Waiting For You', 1, 'lyric của waiting for you', 'Đây là bản nhạc hot nhất của MONO', 5, 3, NULL),
-(2, 'Chạy Ngay Đi', 2, 'lyric của chạy ngay đi', 'Đây là một trong các bài hit của Sơn Tùng MTP', 5, 3, NULL),
-(3, 'Chạm khẽ tim anh một chút thôi', 3, 'lyric của ckta', 'Bài hát tình cảm nhẹ nhàng', 5, 4, NULL),
-(4, 'Người Lạ Ơi', 4, 'lyric của người lạ ơi', 'Rap của Karik', 4, 5, NULL),
-(5, 'Cơn Mơ Băng Giá', 5, 'Lyric của cơn mơ băng giá', 'nhạc của bằng kiều', 5, 1, NULL),
-(6, 'Đường Tôi Chở Em Về', 6, 'lời bài dtcem', 'nhạc của buitruonglinh', 5, 2, NULL),
-(7, 'Bên Trên Tầng Lầu', 7, 'lời bài bttl', 'Nhạc của tăngduytân', 5, 2, NULL),
-(8, 'Khóc một cuộc tình', 8, 'Lời bài kmct', 'Nhạc của Đan Nguyên', 4, 1, NULL);
+INSERT INTO `music_list` (`id`, `name`, `singer_id`, `lyrics`, `description`, `vote`, `category_id`, `url`, `image`, `listens`) VALUES
+(1, 'Waiting For You', 1, 'lyric của waiting for you', 'Đây là bản nhạc hot nhất của MONO', 5, 3, NULL, '', 100),
+(2, 'Chạy Ngay Đi', 2, 'lyric của chạy ngay đi', 'Đây là một trong các bài hit của Sơn Tùng MTP', 5, 3, NULL, '', 100),
+(3, 'Chạm khẽ tim anh một chút thôi', 3, 'lyric của ckta', 'Bài hát tình cảm nhẹ nhàng', 5, 4, NULL, '', 100),
+(4, 'Người Lạ Ơi', 4, 'lyric của người lạ ơi', 'Rap của Karik', 4, 5, NULL, '', 100),
+(5, 'Cơn Mơ Băng Giá', 5, 'Lyric của cơn mơ băng giá', 'nhạc của bằng kiều', 5, 1, NULL, '', 100),
+(6, 'Đường Tôi Chở Em Về', 6, 'lời bài dtcem', 'nhạc của buitruonglinh', 5, 2, NULL, '', 100),
+(7, 'Bên Trên Tầng Lầu', 7, 'lời bài bttl', 'Nhạc của tăngduytân', 5, 2, NULL, '', 100),
+(8, 'Khóc một cuộc tình', 8, 'Lời bài kmct', 'Nhạc của Đan Nguyên', 4, 1, NULL, '', 100);
 
 -- --------------------------------------------------------
 
@@ -119,6 +122,13 @@ CREATE TABLE `playlist` (
   `user_id` int(11) NOT NULL,
   `music_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `playlist`
+--
+
+INSERT INTO `playlist` (`id`, `user_id`, `music_id`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +169,7 @@ INSERT INTO `singer` (`id`, `name`, `image`) VALUES
 (1, 'MONO', NULL),
 (2, 'Sơn Tùng MTP', NULL),
 (3, 'Noo Phước Thịnh', NULL),
-(4, 'Karis', NULL),
+(4, 'Karik', NULL),
 (5, 'Bằng Kiều', NULL),
 (6, 'buitruonglinh', NULL),
 (7, 'Tăng Duy Tân', NULL),
@@ -243,7 +253,7 @@ ALTER TABLE `music_list`
 -- AUTO_INCREMENT cho bảng `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `priority`
