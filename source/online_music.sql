@@ -131,7 +131,7 @@ INSERT INTO `music_list` (`id`, `name`, `singer_id`, `lyrics`, `description`, `v
 (27, 'Cảm giác lúc ấy sẽ ra sao', 12, 'lyric của cglasrs', 'Nhạc của Lou Hoàng', 5, 2, './musics/sontung/haytraochoanh.mp3', '', 100),
 (28, 'Cạn cả nước mắt', 4, 'lyric của cạn cả nước mắt', 'Bài rap không bao giờ biển diễn của Karik', 5, 5, './musics/amee/shaynang.mp3', '', 100),
 (29, 'Suýt nữa thì', 13, 'lyric của suýt nữa thì', 'Bài hát của Andiez', 5, 5, './musics/sontung/nangamxadan.mp3', '', 100),
-(30, '1 phút', 13, 'lyric của 1 phút', 'Bài hát của Andiez', 5, 5, './musics/ducphuc/guinganloiyeu.mp3', '', 100);
+(30, '1 phút', 13, 'lyric của 1 phút', 'Bài hát của Andiez', 5, 5, './musics/ducphuc/guinganloiyeu.mp3', '', 100),
 -- --------------------------------------------------------
 
 --
