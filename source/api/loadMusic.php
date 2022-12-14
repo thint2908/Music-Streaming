@@ -12,3 +12,4 @@ while ($r = $res->fetch_assoc()) {
 }
 $response = json_encode($musics);
 echo $response;
+?>
