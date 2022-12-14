@@ -22,7 +22,7 @@ $("#login").submit(function (e) {
 		success: function (response) {
 			let jsonData = JSON.parse(response);
 			if (jsonData.statusCode === 200) {
-				location.href = "index.html";
+				location.href = "index.php";
 				$(".user-name").text(jsonData.userName);
 			}
 			if (jsonData.statusCode === 400) {

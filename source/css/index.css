@@ -35,18 +35,21 @@ body {
 	background-color: #fff;
 }
 .navbar input {
-	width: 90%;
+	width: 80%;
 	border: none;
 }
 .navbar input:focus {
 	outline: none;
 }
 .nav-right .user-avatar {
-	width: fit-content;
+	text-align: center;
 	display: inline;
 }
 .nav-right {
-	width: fit-content;
+	width: 25%;
+}
+.nav-right .user-name {
+	display: inline;
 }
 .nav-right .img-user {
 	width: 30px;
