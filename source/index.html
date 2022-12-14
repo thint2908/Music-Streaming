@@ -26,15 +26,23 @@
 					<input type="text" name="search-song" id="search-song" placeholder="Tìm kiếm" />
 				</div>
 				<div class="nav-right">
-					<a href="#" class="mx-2 login-btn text-decoration-none text-black p-1"
-						>Log In
-						<i class="bi bi-box-arrow-in-right"></i>
-					</a>
+					<div class="user-avatar">
+						<img src="./img/an-huynh.jpg" alt="" class="img-user" />
+						<p class="user-name">User name</p>
+					</div>
+					<div class="nav-login d-inline">
+						<a href="login.html" class="mx-2 login-btn text-decoration-none text-black p-1"
+							>Log In
+							<i class="bi bi-box-arrow-in-right"></i>
+						</a>
+					</div>
 
-					<a href="#" class="logout-btn text-decoration-none text-black p-1"
-						>Log Out
-						<i class="bi bi-box-arrow-right"></i>
-					</a>
+					<div class="nav-logout d-inline">
+						<a href="./api/logOut.php" class="logout-btn text-decoration-none text-black p-1"
+							>Log Out
+							<i class="bi bi-box-arrow-right"></i>
+						</a>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -80,7 +88,7 @@
 							</div>
 							<div class="col-lg-8">
 								<div class="singer-list" id="music-container">
-									<h1>Đen Vâu</h1>
+									<h1 id="singer-curr-list"></h1>
 									<!-- <div class="song-list">
 										<div class="song-info">
 											<div class="song-name">Đưa nhau đi trốn</div>
@@ -289,6 +297,7 @@
 			crossorigin="anonymous"></script> -->
 		<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 		<script src="./js/index.js"></script>
+		<script src="./js/login.js"></script>
 	</body>
 	<!-- JavaScript Bundle with Popper -->
 </html>

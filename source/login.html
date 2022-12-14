@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div class="login-form" id="login-form">
-			<form method="post" class="form-control login">
+			<form method="post" class="form-control login" id="login">
 				<div class="container">
 					<h1>Login</h1>
 					<div class="login-body">
@@ -38,15 +38,15 @@
 				<h1>Register</h1>
 				<div class="username">
 					<label for="username">Username</label>
-					<input type="text" name="username" id="username" />
+					<input type="text" name="username" id="username-regist" />
 				</div>
 				<div class="email">
 					<label for="">Email</label>
-					<input type="text" name="email" id="email" />
+					<input type="text" name="email" id="email-regist" />
 				</div>
 				<div class="password">
 					<label for="password">Password</label>
-					<input type="password" name="password" id="password" />
+					<input type="password" name="password" id="password-regist" />
 					<br />
 					<label for="confirm-password">Confirm Password</label>
 					<input type="confirm-password" name="confirm-password" id="confirm-password" />
@@ -58,5 +58,6 @@
 			</form>
 		</div>
 	</body>
+	<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 	<script src="./js/login.js"></script>
 </html>

@@ -41,6 +41,18 @@ body {
 .navbar input:focus {
 	outline: none;
 }
+.nav-right .user-avatar {
+	width: fit-content;
+	display: inline;
+}
+.nav-right {
+	width: fit-content;
+}
+.nav-right .img-user {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
 /* ./navbar */
 .container-fluid {
 	/* height: 1000px; */
@@ -94,6 +106,9 @@ body {
 	font-size: 32px;
 	font-weight: 600;
 	margin-bottom: 32px;
+}
+.cur-song-list .song-info {
+	width: 90%;
 }
 .body-cur .row:first-child {
 	display: flex;
