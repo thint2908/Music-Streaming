@@ -150,7 +150,7 @@ session_start();
 							<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 								<div class="carousel-inner">
 									<div class="carousel-item active carousel-item1">
-										<div class="list-body">
+										<!-- <div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
 													<img src="./img/an-huynh.jpg" alt="" />
@@ -175,10 +175,10 @@ session_start();
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 									<div class="carousel-item carousel-item2">
-										<div class="list-body">
+										<!-- <div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
 													<img src="./img/an-huynh.jpg" alt="" />
@@ -203,10 +203,10 @@ session_start();
 												</div>
 												<div class="song-name">Ta và Nàng</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 									<div class="carousel-item carousel-item3">
-										<div class="list-body">
+										<!-- <div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
 													<img src="./img/an-huynh.jpg" alt="" />
@@ -231,7 +231,7 @@ session_start();
 												</div>
 												<div class="song-name">Đi theo bóng mặt trời</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -243,6 +243,7 @@ session_start();
 									<span class="visually-hidden">Next</span>
 								</button>
 							</div>
+							
 						</div>
 					</div>
 					<!-- ./ Carousel list top song-->
