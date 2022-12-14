@@ -81,7 +81,7 @@
 							<div class="col-lg-8">
 								<div class="singer-list" id="music-container">
 									<h1>Đen Vâu</h1>
-									<div class="song-list">
+									<!-- <div class="song-list">
 										<div class="song-info">
 											<div class="song-name">Đưa nhau đi trốn</div>
 											<div class="song-author">Đen Vâu</div>
@@ -117,7 +117,7 @@
 										<div class="song-heart">
 											<i class="bi bi-heart"></i>
 										</div>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
@@ -283,58 +283,12 @@
 			</div>
 		</footer>
 		<!-- ./footer -->
+		<!-- <script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+			crossorigin="anonymous"></script> -->
+		<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+		<script src="./js/index.js"></script>
 	</body>
-	<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 	<!-- JavaScript Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-		crossorigin="anonymous"></script>
-	<script>
-		<!-- Load and show song list from database to page -->
-		function loadMusic(link) {
-			$.ajax({
-				url: link,
-				dataType: "json",
-				success: function (data) {
-					show_data(data);
-				},
-				error: function (error) {
-					// alert("Load fail");
-				},
-			});
-		}
-		function show_data(data) {
-			let list_body = $("#music-container");
-
-			for (let i = 0; i < data.length; i++) {
-				let row = data[i];
-				let _list = ` <div class="song-list">
-								<div class="song-info">
-									<div class="song-name">${row.name}</div>
-									<div class="song-author">${row.singer_name}</div>
-								</div>
-								<div class="song-heart">
-									<i class="bi bi-heart"></i>
-									<i class="bi bi-heart-fill" style="color: red; display: none"></i>
-								</div>
-								</div>
-								`;
-				list_body.append(_list);
-			}
-			$(".bi-heart").click(function () {
-				$(this).hide();
-				$(this)(".bi-heart-fill").show();
-			});
-			$(".bi-heart-fill").click(function () {
-				$(this).hide();
-				$(this)(".bi-heart").show();
-			});
-		}
-
-		$(function () {
-			loadMusic("./api/loadMusic.php");
-		});
-	</script>
-	<script src="js/index.js?v=1"></script>
 </html>

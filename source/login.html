@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/login.css" />
+		<title>Login to Music page</title>
+	</head>
+	<body>
+		<div class="login-form" id="login-form">
+			<form method="post" class="form-control login">
+				<div class="container">
+					<h1>Login</h1>
+					<div class="login-body">
+						<div class="username">
+							<label for="">Username</label>
+							<input type="text" name="userName" id="userName" />
+						</div>
+						<div class="password">
+							<label for="password">Password</label>
+							<input type="password" name="password" id="password" />
+						</div>
+						<div class="login-btn">
+							<button type="submit">Log In</button>
+						</div>
+
+						<div class="registAcc">
+							You not have account yet? <br />
+							<a id="register">Register now?</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="register" id="register-form">
+			<form method="post" class="register-form">
+				<h1>Register</h1>
+				<div class="username">
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" />
+				</div>
+				<div class="email">
+					<label for="">Email</label>
+					<input type="text" name="email" id="email" />
+				</div>
+				<div class="password">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" />
+					<br />
+					<label for="confirm-password">Confirm Password</label>
+					<input type="confirm-password" name="confirm-password" id="confirm-password" />
+				</div>
+				<div class="regist-btn">
+					<button>Register</button>
+				</div>
+				<div class="already-acc">You already have account? <a id="login">Log In</a></div>
+			</form>
+		</div>
+	</body>
+	<script src="./js/login.js"></script>
+</html>

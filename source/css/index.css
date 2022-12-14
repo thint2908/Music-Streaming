@@ -104,6 +104,9 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
+.cur-song-list .singer-list .download-btn {
+	margin-right: 8px;
+}
 .top-music {
 	padding-top: 16px;
 }
