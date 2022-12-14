@@ -252,8 +252,8 @@ session_start();
 			<div class="col-lg-2 right-body">
 				<div class="recent-song right-body-container">
 					<h5 class="top-singer">Top Singer 2022</h5>
-					<div class="singer-list">
-						<div class="singer">Đen Vâu</div>
+					<div class="singer-list" id="singerlist">
+						<!-- <div class="singer">Đen Vâu</div>
 						<div class="singer">Sơn Tùng</div>
 						<div class="singer">Tài Smile</div>
 						<div class="singer">Trúc Nhân</div>
@@ -264,7 +264,7 @@ session_start();
 						<div class="singer">Đen Vâu</div>
 						<div class="singer">Sơn Tùng</div>
 						<div class="singer">Tài Smile</div>
-						<div class="singer">Trúc Nhân</div>
+						<div class="singer">Trúc Nhân</div> -->
 					</div>
 				</div>
 			</div>

@@ -12,9 +12,39 @@ function loadMusic(link) {
     },
     error: function (error) {
       // alert("Load fail");
-    },
+    }
   });
 }
+
+//load singer from database
+function load_singer(link){
+	$.ajax({
+		url: link,
+    dataType: "json",
+    success: function (data) {
+      show_singer(data);
+    },
+    error: function (error) {
+      // alert("Load fail");
+    }
+	});
+}
+
+function show_singer(response){
+	let singer_list = $("#singerlist");
+	for(let i = 0; i < response.length ; i++){
+		let r = response[i];
+		let singer = `
+			<div class="singer">
+				<div class="singer-name">${r.name}</div>
+				<div class="singer-image" style="display:none">${r.image}</div>
+			</div>
+		`;
+		singer_list.append(singer);
+	}
+}
+
+//load song top 20 song from data base
 function loadTopMusic(url) {
   $.ajax({
     url: url,
@@ -25,6 +55,7 @@ function loadTopMusic(url) {
     error: function (error) {},
   });
 }
+//get and handle response
 function show_top_music(response) {
   let count = 0;
   for (let i = 1; i < 4; i++) {
@@ -150,6 +181,7 @@ function show_data(data) {
 }
 
 $(function () {
+	load_singer("./api/loadSinger.php");
   loadMusic("./api/loadMusic.php");
   // end load mucsic and render music into singer list song
   //Load music into top song list
