@@ -1,15 +1,27 @@
 let register = document.getElementById("register");
-let login = document.getElementById("login");
+let login = document.getElementById("login-btn");
 let registerForm = document.getElementById("register-form");
 let loginForm = document.getElementById("login-form");
 
+console.log(register);
+console.log(login);
+console.log(registerForm);
+console.log(loginForm);
+
 login.addEventListener("click", function () {
+	// alert("ahihi");
 	loginForm.style.display = "block";
 	registerForm.style.display = "none";
+	// $("#login-form").show();
+	// $("#register-form").hide();
 });
 register.addEventListener("click", function () {
+	// alert("ahihi");
+
 	loginForm.style.display = "none";
 	registerForm.style.display = "block";
+	// $("#login-form").hide();
+	// $("#register-form").show();
 });
 
 // handle login form

@@ -1,38 +1,47 @@
+let isPlaying = true;
+let playBtn = $("#play-btn");
+let pauseBtn = $("#pause-btn");
+let songNameFooter = $(".song-name");
+let songNameAuthorFooter = $(".song-author");
+let rangeBar = document.getElementById("musicTimer");
+let songCurrTime = $(".song-currTime");
+let songTotalTime = $(".song-totalTime");
+
 // load mucsic and render music into singer list song
 //  Load and show song list from database to page
 
 // =================================================================
 // Load and show song list from database to page
 function loadMusic(link) {
-  $.ajax({
-    url: link,
-    dataType: "json",
-    success: function (data) {
-      show_data(data);
-    },
-    error: function (error) {
-      // alert("Load fail");
-    }
-  });
-}
-
-//load singer from database
-function load_singer(link){
 	$.ajax({
 		url: link,
-    dataType: "json",
-    success: function (data) {
-      show_singer(data);
-    },
-    error: function (error) {
-      // alert("Load fail");
-    }
+		dataType: "json",
+		success: function (data) {
+			show_data(data);
+		},
+		error: function (error) {
+			// alert("Load fail");
+		},
 	});
 }
 
-function show_singer(response){
+//load singer from database
+function load_singer(link) {
+	$.ajax({
+		url: link,
+		dataType: "json",
+		success: function (data) {
+			show_singer(data);
+		},
+		error: function (error) {
+			// alert("Load fail");
+		},
+	});
+}
+
+function show_singer(response) {
 	let singer_list = $("#singerlist");
-	for(let i = 0; i < response.length ; i++){
+	for (let i = 0; i < response.length; i++) {
 		let r = response[i];
 		let singer = `
 			<div class="singer">
@@ -46,22 +55,22 @@ function show_singer(response){
 
 //load song top 20 song from data base
 function loadTopMusic(url) {
-  $.ajax({
-    url: url,
-    dataType: "json",
-    success: function (response) {
-      show_top_music(response);
-    },
-    error: function (error) {},
-  });
+	$.ajax({
+		url: url,
+		dataType: "json",
+		success: function (response) {
+			show_top_music(response);
+		},
+		error: function (error) {},
+	});
 }
 //get and handle response
 function show_top_music(response) {
-  let count = 0;
-  for (let i = 1; i < 4; i++) {
-    let list_top_song = $(".carousel-item" + i);
+	let count = 0;
+	for (let i = 1; i < 4; i++) {
+		let list_top_song = $(".carousel-item" + i);
 
-    let item = `
+		let item = `
 											<div class="list-body">
 												<div class="list-item">
 													<div class="img-song">
@@ -91,37 +100,53 @@ function show_top_music(response) {
 											
 										
 			`;
-    count++;
-    list_top_song.append(item);
-  }
+		count++;
+		list_top_song.append(item);
+	}
 }
 
 function show_data(data) {
-  let list_body = $("#music-container");
-  //Handling add song to playlist
+	let list_body = $("#music-container");
+	let singer_curr_list = $("#singer-curr-list");
+	singer_curr_list.text(data[0].singer_name);
+	//Handling add song to playlist
 
-  
+	//Handling remove song from playlist
 
-  //Handling remove song from playlist
-  
-  for (let i = 0; i < data.length; i++) {
-    let row = data[i];
-    $.post(
-      "api/checkPlaylist.php",
-      {
-        songName: `${row.name}`,
-      },
-      function (res) {
-        if (res == "true") {
-          console.log($(".song-heart"+i).children(".bi-heart").show());
-          console.log($(".song-heart"+i).children(".bi-heart-fill").hide());
-        } else {
-			console.log($(".song-heart"+i).children(".bi-heart").hide());
-			console.log($(".song-heart"+i).children(".bi-heart-fill").show());
-        }
-      }
-    );
-    let _list = ` 	
+	for (let i = 0; i < data.length; i++) {
+		let row = data[i];
+		$.post(
+			"api/checkPlaylist.php",
+			{
+				songName: `${row.name}`,
+			},
+			function (res) {
+				if (res == "true") {
+					console.log(
+						$(".song-heart" + i)
+							.children(".bi-heart")
+							.show()
+					);
+					console.log(
+						$(".song-heart" + i)
+							.children(".bi-heart-fill")
+							.hide()
+					);
+				} else {
+					console.log(
+						$(".song-heart" + i)
+							.children(".bi-heart")
+							.hide()
+					);
+					console.log(
+						$(".song-heart" + i)
+							.children(".bi-heart-fill")
+							.show()
+					);
+				}
+			}
+		);
+		let _list = ` 	
 				<div class="song-list">
 					<div onclick='playMusic(${row.id})' class="song-info">
 						<div class="song-name">${row.name}</div>
@@ -138,79 +163,120 @@ function show_data(data) {
 					</audio>
 				</div>
 					`;
-    list_body.append(_list);
-  }
+		list_body.append(_list);
+	}
 
-  $(".bi-heart").click(function () {
-    let songName = $(this)
-      .parent()
-      .parent()
-      .children("div")
-      .children()[0].innerText;
-    $(this).parent().children().show();
-    $(this).hide();
-    $.post(
-      "api/addPlaylist.php",
-      {
-        songName: songName,
-      },
-      function (res) {
-        alert(res);
-      }
-    );
-  });
+	$(".bi-heart").click(function () {
+		let songName = $(this).parent().parent().children("div").children()[0].innerText;
+		$(this).parent().children().show();
+		$(this).hide();
+		$.post(
+			"api/addPlaylist.php",
+			{
+				songName: songName,
+			},
+			function (res) {
+				alert(res);
+			}
+		);
+	});
 
-  $(".bi-heart-fill").click(function () {
-    let songName = $(this)
-      .parent()
-      .parent()
-      .children("div")
-      .children()[0].innerText;
-    $(this).parent().children().show();
-    $(this).hide();
-    $.post(
-      "api/deletePlaylist.php",
-      {
-        songName: songName,
-      },
-      function (res) {
-        alert(res);
-      }
-    );
-  });
+	$(".bi-heart-fill").click(function () {
+		let songName = $(this).parent().parent().children("div").children()[0].innerText;
+		$(this).parent().children().show();
+		$(this).hide();
+		$.post(
+			"api/deletePlaylist.php",
+			{
+				songName: songName,
+			},
+			function (res) {
+				alert(res);
+			}
+		);
+	});
 }
 
 $(function () {
 	load_singer("./api/loadSinger.php");
-  loadMusic("./api/loadMusic.php");
-  // end load mucsic and render music into singer list song
-  //Load music into top song list
-  loadTopMusic("./api/loadTopMuisc.php");
-  // begin change button play
-  let playBtn = document.getElementById("play-btn");
-  let pauseBtn = document.getElementById("pause-btn");
+	loadMusic("./api/loadMusic.php");
+	// end load mucsic and render music into singer list song
+	//Load music into top song list
+	loadTopMusic("./api/loadTopMuisc.php");
+	// begin change button play
+	let playBtn = document.getElementById("play-btn");
+	let pauseBtn = document.getElementById("pause-btn");
 
-  playBtn.addEventListener("click", function () {
-    pauseBtn.style.display = "inline-block";
-    playBtn.style.display = "none";
-  });
-  pauseBtn.addEventListener("click", function () {
-    pauseBtn.style.display = "none";
-    playBtn.style.display = "inline-block";
-  });
-  // end change button play
+	playBtn.addEventListener("click", function () {
+		pauseBtn.style.display = "inline-block";
+		playBtn.style.display = "none";
+	});
+	pauseBtn.addEventListener("click", function () {
+		pauseBtn.style.display = "none";
+		playBtn.style.display = "inline-block";
+	});
+	// end change button play
 
-  // begin change text in play bar when click in singer list song
+	// begin change text in play bar when click in singer list song
 
-  // $(".song-list").css("border", "3px solid red");
-  // console.log(songList);
+	// $(".song-list").css("border", "3px solid red");
+	// console.log(songList);
 });
-function playMusic(audio) {
-  let music = document.getElementById(audio);
-  music.play();
-}
-function pauseMusic() {
-  let music = document.getElementById("myAudio-6");
 
-  music.pause();
+function playMusic(audio) {
+	//handle click on music in list song singer
+	let music = document.getElementById(audio);
+	if (isPlaying) {
+		playBtn.click();
+		music.play();
+		isPlaying = false;
+	} else {
+		pauseBtn.click();
+		music.pause();
+		isPlaying = true;
+	}
+	// handle click button play/pause
+	playBtn.click(function (e) {
+		if (isPlaying) {
+			music.play();
+			isPlaying = false;
+		} else {
+			music.pause();
+			isPlaying = true;
+		}
+	});
+	pauseBtn.click(function (e) {
+		if (isPlaying) {
+			music.play();
+			isPlaying = false;
+		} else {
+			music.pause();
+			isPlaying = true;
+		}
+	});
+	// handle audio time range change
+	rangeBar.max = music.duration;
+	rangeBar.value = music.currentTime;
+	console.log(rangeBar);
+	rangeBar.addEventListener("onchange", handleChangeBar);
+	function handleChangeBar() {}
+	function displayTimer() {
+		rangeBar.value = music.currentTime;
+		let { duration, currentTime } = music;
+		songTotalTime.text(formatTimer(duration));
+		songCurrTime.text(formatTimer(currentTime));
+	}
+
+	setInterval(() => {
+		displayTimer();
+	}, 500);
+}
+function formatTimer(number) {
+	const minutes = Math.floor(number / 60);
+	const seconds = Math.floor(number - minutes * 60);
+	return `${minutes}:${seconds}`;
+}
+function changeStatusFooter(name, singerName, url) {
+	songNameAuthorFooter.text(singerName);
+	songNameFooter.text(name);
 }

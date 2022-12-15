@@ -206,9 +206,21 @@ body {
 .footer .music-status {
 	/* width: 20%;
 	height: 20%; */
+	position: relative;
 	text-align: center;
 	width: 50%;
 	user-select: none;
+}
+.footer .song-currTime {
+	position: absolute;
+	top: 10px;
+	font-size: 14px;
+}
+.footer .song-totalTime {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	font-size: 14px;
 }
 .footer .music-timer input {
 	width: 100%;

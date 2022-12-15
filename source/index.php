@@ -243,7 +243,7 @@ session_start();
 									<span class="visually-hidden">Next</span>
 								</button>
 							</div>
-							
+
 						</div>
 					</div>
 					<!-- ./ Carousel list top song-->
@@ -283,7 +283,9 @@ session_start();
 			</div>
 			<div class="music-status">
 				<div class="music-timer">
-					<input type="range" name="music-time" id="" />
+					<p class="song-currTime">00:00</p>
+					<input type="range" name="music-timer" id="musicTimer" />
+					<p class="song-totalTime">00:00</p>
 				</div>
 				<div class="music-option">
 					<div id="shuffle-btn" class="option-btn">
