@@ -3,11 +3,6 @@ let login = document.getElementById("login-btn");
 let registerForm = document.getElementById("register-form");
 let loginForm = document.getElementById("login-form");
 
-console.log(register);
-console.log(login);
-console.log(registerForm);
-console.log(loginForm);
-
 login.addEventListener("click", function () {
 	// alert("ahihi");
 	loginForm.style.display = "block";

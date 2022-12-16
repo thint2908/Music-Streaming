@@ -203,6 +203,7 @@ body {
 .footer .song-author,
 .footer .song-name {
 	margin-left: 8px;
+	width: 300px;
 }
 .footer .music-status {
 	/* width: 20%;

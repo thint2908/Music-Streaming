@@ -6,6 +6,11 @@ let songNameAuthorFooter = $(".song-author");
 let rangeBar = document.getElementById("musicTimer");
 let songCurrTime = $(".song-currTime");
 let songTotalTime = $(".song-totalTime");
+let volume = $("#volume");
+let nextBtn = $("#next-btn");
+let prevBtn = $("#prev-btn");
+let urlList = [];
+let nameList;
 const music = new Audio();
 
 // load mucsic and render music into singer list song
@@ -107,6 +112,8 @@ function show_top_music(response) {
 }
 
 function show_data(data) {
+	$("#volume").value = 1;
+
 	let list_body = $("#music-container");
 	let singer_curr_list = $("#singer-curr-list");
 	singer_curr_list.text(data[0].singer_name);
@@ -148,10 +155,10 @@ function show_data(data) {
 			}
 		);
 		let _list = ` 	
-				<div id="${row.url}" class="song-list">
+				<div id="./musics/${row.url}" class="song-list">
 					<div onclick='playMusic(${row.id})' class="song-info">
-						<div class="song-name ${row.name}">${row.name}</div>
-						<div class="song-author ${row.singer_name}">${row.singer_name}</div>
+						<div id='${row.name}|${row.singer_name}' class="song-name ">${row.name}</div>
+						<div id='${row.singer_name}' class="song-author ">${row.singer_name}</div>
 					</div>
 	  				<div class="song-download">
 					<a href="./musics/${row.url}" download> 
@@ -163,7 +170,7 @@ function show_data(data) {
 						<i class="bi bi-heart"></i>
 						<i class="bi bi-heart-fill" style="color: red; display: none"></i>
 					</div>
-					<audio id='${row.id}' src="./musics/${row.url}" type='audio/mp3'>
+					<audio class='${row.name} | ${row.singer_name}'  id='${row.id}' src="./musics/${row.url}" type='audio/mp3'>
 					</audio>
 				</div>
 					`;
@@ -228,15 +235,19 @@ $(function () {
 });
 
 function playMusic(audio) {
-	let name = $("#" + audio);
-	console.log(`song name: ` + name.classList);
 	//handle click on music in list song singer
 	let url = document.getElementById(audio);
 	music.src = url.src;
-	console.log(audio);
-	// if (!isPlaying) {
-	// 	isPlaying = false;
-	// }
+
+	// handle name footer
+	let nameTmp = url.classList;
+	let nameFooter = "";
+	nameTmp.forEach((element) => {
+		nameFooter += element + " ";
+		// console.log(nameFooter);
+	});
+	// ./ handle name footer
+	$(".footer  .song-name").text(nameFooter);
 	isPlaying = true;
 	// music.load();
 	if (isPlaying) {
@@ -262,14 +273,12 @@ function playMusic(audio) {
 	// handle click button play/pause
 
 	// handle audio time range change
-	rangeBar.max = music.duration;
-	rangeBar.value = music.currentTime;
-	// console.log(rangeBar);
 	rangeBar.addEventListener("onchange", handleChangeBar);
 	function handleChangeBar() {}
 	function displayTimer() {
-		rangeBar.value = music.currentTime;
 		let { duration, currentTime } = music;
+		rangeBar.value = currentTime;
+		rangeBar.max = duration;
 		songTotalTime.text(formatTimer(duration));
 		songCurrTime.text(formatTimer(currentTime));
 	}
@@ -277,7 +286,72 @@ function playMusic(audio) {
 	setInterval(() => {
 		displayTimer();
 	}, 500);
+	let index;
+	function getCurrentSongList() {
+		urlList = [];
+		let songList = $(".song-list");
+		nameList = $("#music-container .song-name");
+		console.log(nameList[0].id);
+		for (let element of songList) {
+			urlList.push(element.id);
+		}
+		var result = Object.keys(urlList).map((key) => [Number(key), urlList[key]]);
+		currIndex = "." + url.src.slice(33);
+		// currIndex = urlList
+		// 	.map(function (e) {
+		// 		return e;
+		// 	})
+		// 	.indexOf(url.src);
+		// console.log(result.indexOf(currIndex));
+		console.log(typeof currIndex);
+		console.log(currIndex);
+		console.log(urlList);
+		console.log(typeof urlList);
+		for (let i = 0; i < urlList.length; i++) {
+			if (urlList[i] == currIndex) {
+				index = i;
+			}
+		}
+	}
+	getCurrentSongList();
+	nextBtn.click(function (e) {
+		if ($("#play-btn").css("display") === "inline-block") {
+			$("#play-btn").css("display", "none");
+		}
+		$("#pause-btn").css("display", "inline-block");
+		index++;
+		if (index >= urlList.length) {
+			index = 0;
+		}
+		music.src = urlList[index];
+		music.play();
+		isPlaying = false;
+		$(".footer  .song-name").text(nameList[index].id);
+	});
+	prevBtn.click(function (e) {
+		if ($("#play-btn").css("display") === "inline-block") {
+			$("#play-btn").css("display", "none");
+		}
+		$("#pause-btn").css("display", "inline-block");
+		index--;
+		if (index < 0) {
+			index = urlList.length - 1;
+		}
+		music.src = urlList[index];
+		music.play();
+		isPlaying = false;
+		$(".footer  .song-name").text(nameList[index].id);
+	});
 }
+document.addEventListener("keydown", function (event) {
+	console.log(event);
+	if (event.keyCode == 80) {
+		pauseBtn.click();
+	}
+	if (event.keyCode == 82) {
+		playBtn.click();
+	}
+});
 playBtn.click(function (e) {
 	if (isPlaying) {
 		music.play();
@@ -307,4 +381,18 @@ function formatTimer(number) {
 function changeStatusFooter(name, singerName, url) {
 	songNameAuthorFooter.text(singerName);
 	songNameFooter.text(name);
+}
+function changeVolume(amount) {
+	music.volume = amount;
+	console.log(music.volume);
+	if (music.volume === 0) {
+		$(".volume-bar").addClass("bi bi-volume-mute-fill");
+		$(".volume-bar").removeClass("bi bi-volume-up-fill");
+	} else {
+		$(".volume-bar").removeClass("bi bi-volume-mute-fill");
+		$(".volume-bar").addClass("bi bi-volume-up-fill");
+	}
+}
+function changeCurrentTime(amount) {
+	music.currentTime = amount;
 }

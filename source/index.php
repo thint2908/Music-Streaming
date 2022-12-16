@@ -278,24 +278,24 @@ session_start();
 				<div class="img-song">
 					<img src="./img/an-huynh.jpg" alt="" />
 				</div>
-				<div class="song-name">Đưa nhau đi trốn |</div>
-				<div class="song-author">Đen Vâu</div>
+				<div class="song-name"></div>
+				<!-- <div class="song-author">Đen Vâu</div> -->
 			</div>
 			<div class="music-status">
 				<div class="music-timer">
 					<p class="song-currTime">00:00</p>
 					<p class="song-totalTime">00:00</p>
-					<input type="range" name="music-timer" id="musicTimer" />
-					<div class="volume-bar">
-						<i class="bi bi-volume-up-fill"></i>
-						<input type="range" name="volume" id="volume" max='100'>
+					<input value="0" type="range" name="music-timer" id="musicTimer" onchange="changeCurrentTime(this.value)" />
+					<div class="volume-bar bi bi-volume-up-fill">
+						<!-- <i class="bi bi-volume-up-fill"></i> -->
+						<input value="1" type="range" name="volume" id="volume" max='1' min="0" step="0.01" onchange="changeVolume(this.value)">
 					</div>
 				</div>
 				<div class="music-option">
 					<div id="shuffle-btn" class="option-btn">
 						<i class="bi bi-shuffle"></i>
 					</div>
-					<div id="backward-btn" class="option-btn">
+					<div id="prev-btn" class="option-btn">
 						<i class="bi bi-skip-backward-circle"></i>
 					</div>
 					<div id="play-btn" class="option-btn play-btn" style="display: inline-block">
@@ -304,7 +304,7 @@ session_start();
 					<div id="pause-btn" class="option-btn pause-btn" style="display: none">
 						<i class="bi bi-pause-circle"></i>
 					</div>
-					<div id="forward-btn" class="option-btn">
+					<div id="next-btn" class="option-btn">
 						<i class="bi bi-skip-forward-circle"></i>
 					</div>
 				</div>
