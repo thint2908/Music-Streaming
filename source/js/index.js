@@ -125,23 +125,23 @@ function show_data(data) {
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart")
-							.show()
+							.hide()
 					);
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart-fill")
-							.hide()
+							.show()
 					);
 				} else {
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart")
-							.hide()
+							.show()
 					);
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart-fill")
-							.show()
+							.hide()
 					);
 				}
 			}
@@ -173,7 +173,7 @@ function show_data(data) {
 		$.post(
 			"api/addPlaylist.php",
 			{
-				songName: songName,
+				songName: songName
 			},
 			function (res) {
 				alert(res);
@@ -188,7 +188,7 @@ function show_data(data) {
 		$.post(
 			"api/deletePlaylist.php",
 			{
-				songName: songName,
+				songName: songName
 			},
 			function (res) {
 				alert(res);

@@ -1,14 +1,15 @@
 <?php
+session_start();
 require_once("connection.php");
-if (isset($_POST['songName'])) {
+if (isset($_SESSION['userName'])) {
     $res = $db->query("
-            select * from playlist where music_id = (select id from music_list where name = '" . $_POST['songName'] . "')
+    select * from playlist where music_id = (select id from music_list where name = '" . $_POST['songName'] . "') and user_id = (select id from account where username ='".$_SESSION['userName']."')
         ");
     if ($res->num_rows == 0) {
         $res = $db->query("
             insert into playlist(music_id, user_id) values(
                 (select id from music_list where name = '" . $_POST['songName'] . "'),
-                (select id from account where username = 'admin')
+                (select id from account where username = '".$_SESSION['userName']."')
             )
             ");
             echo "Add playlist successful";
@@ -17,4 +18,6 @@ if (isset($_POST['songName'])) {
     }
 
     
+}else{
+    echo "Chưa đăng nhập";
 }
