@@ -125,23 +125,23 @@ function show_data(data) {
 				if (res == "true") {
 					console.log(
 						$(".song-heart" + i)
-							.children(".bi-heart")
+							.children(".bi-heart-fill")
 							.show()
 					);
 					console.log(
 						$(".song-heart" + i)
-							.children(".bi-heart-fill")
+							.children(".bi-heart")
 							.hide()
 					);
 				} else {
 					console.log(
 						$(".song-heart" + i)
-							.children(".bi-heart")
+							.children(".bi-heart-fill")
 							.hide()
 					);
 					console.log(
 						$(".song-heart" + i)
-							.children(".bi-heart-fill")
+							.children(".bi-heart")
 							.show()
 					);
 				}
