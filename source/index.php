@@ -284,8 +284,12 @@ session_start();
 			<div class="music-status">
 				<div class="music-timer">
 					<p class="song-currTime">00:00</p>
-					<input type="range" name="music-timer" id="musicTimer" />
 					<p class="song-totalTime">00:00</p>
+					<input type="range" name="music-timer" id="musicTimer" />
+					<div class="volume-bar">
+						<i class="bi bi-volume-up-fill"></i>
+						<input type="range" name="volume" id="volume" max='100'>
+					</div>
 				</div>
 				<div class="music-option">
 					<div id="shuffle-btn" class="option-btn">
