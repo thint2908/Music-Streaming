@@ -154,13 +154,16 @@ function show_data(data) {
 						<div class="song-author">${row.singer_name}</div>
 					</div>
 	  				<div class="song-download">
-					  <i class="bi bi-download download-btn"></i>
+					<a href="./musics/${row.url}" download> 
+						<i class="bi bi-download download-btn"></i>
+					</a>
+					  
 					</div>
 					<div class="song-heart${i}">
 						<i class="bi bi-heart"></i>
 						<i class="bi bi-heart-fill" style="color: red; display: none"></i>
 					</div>
-					<audio id='${row.id}' src="${row.url}" type='audio/mp3'>
+					<audio id='${row.id}' src="./musics/${row.url}" type='audio/mp3'>
 					</audio>
 				</div>
 					`;
