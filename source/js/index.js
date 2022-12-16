@@ -150,8 +150,8 @@ function show_data(data) {
 		let _list = ` 	
 				<div id="${row.url}" class="song-list">
 					<div onclick='playMusic(${row.id})' class="song-info">
-						<div class="song-name">${row.name}</div>
-						<div class="song-author">${row.singer_name}</div>
+						<div class="song-name ${row.name}">${row.name}</div>
+						<div class="song-author ${row.singer_name}">${row.singer_name}</div>
 					</div>
 	  				<div class="song-download">
 					  <i class="bi bi-download download-btn"></i>
@@ -225,6 +225,8 @@ $(function () {
 });
 
 function playMusic(audio) {
+	let name = $("#" + audio);
+	console.log(`song name: ` + name.classList);
 	//handle click on music in list song singer
 	let url = document.getElementById(audio);
 	music.src = url.src;
@@ -235,11 +237,14 @@ function playMusic(audio) {
 	isPlaying = true;
 	// music.load();
 	if (isPlaying) {
-		// playBtn.click();
+		$("#play-btn").css("display", "none");
+		$("#pause-btn").css("display", "inline-block");
 		music.play();
 		isPlaying = false;
 	} else {
-		// pauseBtn.click();
+		$("#pause-btn").css("display", "none");
+		$("#play-btn").css("display", "inline-block");
+
 		music.pause();
 		isPlaying = true;
 	}
@@ -252,24 +257,7 @@ function playMusic(audio) {
 	// 	});
 	// });
 	// handle click button play/pause
-	playBtn.click(function (e) {
-		if (isPlaying) {
-			music.play();
-			isPlaying = false;
-		} else {
-			music.pause();
-			isPlaying = true;
-		}
-	});
-	pauseBtn.click(function (e) {
-		if (isPlaying) {
-			music.play();
-			isPlaying = false;
-		} else {
-			music.pause();
-			isPlaying = true;
-		}
-	});
+
 	// handle audio time range change
 	rangeBar.max = music.duration;
 	rangeBar.value = music.currentTime;
@@ -287,10 +275,31 @@ function playMusic(audio) {
 		displayTimer();
 	}, 500);
 }
+playBtn.click(function (e) {
+	if (isPlaying) {
+		music.play();
+		isPlaying = false;
+	} else {
+		music.pause();
+		isPlaying = true;
+	}
+});
+pauseBtn.click(function (e) {
+	if (isPlaying) {
+		music.play();
+		isPlaying = false;
+	} else {
+		music.pause();
+		isPlaying = true;
+	}
+});
 function formatTimer(number) {
 	const minutes = Math.floor(number / 60);
 	const seconds = Math.floor(number - minutes * 60);
-	return `${minutes}:${seconds}`;
+	if (minutes < 10 && seconds < 10) {
+		return `0${minutes}:0${seconds}`;
+	}
+	return `0${minutes}:${seconds}`;
 }
 function changeStatusFooter(name, singerName, url) {
 	songNameAuthorFooter.text(singerName);

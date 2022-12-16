@@ -170,6 +170,7 @@ body {
 
 /* Footer */
 .footer {
+	z-index: 1000;
 	position: fixed;
 	bottom: 0;
 	right: 0;
@@ -225,6 +226,7 @@ body {
 .footer .music-timer input {
 	width: 100%;
 }
+
 .footer .volume-bar {
 	display: flex;
 	justify-content: center;
