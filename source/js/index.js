@@ -6,6 +6,7 @@ let songNameAuthorFooter = $(".song-author");
 let rangeBar = document.getElementById("musicTimer");
 let songCurrTime = $(".song-currTime");
 let songTotalTime = $(".song-totalTime");
+const music = new Audio();
 
 // load mucsic and render music into singer list song
 //  Load and show song list from database to page
@@ -125,29 +126,29 @@ function show_data(data) {
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart")
-							.hide()
+							.show()
 					);
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart-fill")
-							.show()
+							.hide()
 					);
 				} else {
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart")
-							.show()
+							.hide()
 					);
 					console.log(
 						$(".song-heart" + i)
 							.children(".bi-heart-fill")
-							.hide()
+							.show()
 					);
 				}
 			}
 		);
 		let _list = ` 	
-				<div class="song-list">
+				<div id="${row.url}" class="song-list">
 					<div onclick='playMusic(${row.id})' class="song-info">
 						<div class="song-name">${row.name}</div>
 						<div class="song-author">${row.singer_name}</div>
@@ -173,7 +174,7 @@ function show_data(data) {
 		$.post(
 			"api/addPlaylist.php",
 			{
-				songName: songName
+				songName: songName,
 			},
 			function (res) {
 				alert(res);
@@ -188,7 +189,7 @@ function show_data(data) {
 		$.post(
 			"api/deletePlaylist.php",
 			{
-				songName: songName
+				songName: songName,
 			},
 			function (res) {
 				alert(res);
@@ -225,16 +226,31 @@ $(function () {
 
 function playMusic(audio) {
 	//handle click on music in list song singer
-	let music = document.getElementById(audio);
+	let url = document.getElementById(audio);
+	music.src = url.src;
+	console.log(audio);
+	// if (!isPlaying) {
+	// 	isPlaying = false;
+	// }
+	isPlaying = true;
+	// music.load();
 	if (isPlaying) {
-		playBtn.click();
+		// playBtn.click();
 		music.play();
 		isPlaying = false;
 	} else {
-		pauseBtn.click();
+		// pauseBtn.click();
 		music.pause();
 		isPlaying = true;
 	}
+	// Array.from(document.getElementsByClassName("song-list")).forEach((element) => {
+	// 	element.addEventListener("click", (e) => {
+	// 		url = e.target.getAttribute("id");
+	// 		console.log(url);
+	// 		music.src = "./musics/ducphuc/traidatdepnhatkhicoem.mp3";
+	// 		music.play();
+	// 	});
+	// });
 	// handle click button play/pause
 	playBtn.click(function (e) {
 		if (isPlaying) {
@@ -257,7 +273,7 @@ function playMusic(audio) {
 	// handle audio time range change
 	rangeBar.max = music.duration;
 	rangeBar.value = music.currentTime;
-	console.log(rangeBar);
+	// console.log(rangeBar);
 	rangeBar.addEventListener("onchange", handleChangeBar);
 	function handleChangeBar() {}
 	function displayTimer() {
