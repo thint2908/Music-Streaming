@@ -129,7 +129,25 @@ INSERT INTO `music_list` (`id`, `name`, `singer_id`, `lyrics`, `description`, `v
 (26, 'Em của ngày hôm qua', 2, 'lyric của bắt cóc con tim', 'Nhạc của Lou Hoàng', 5, 2, 'emcuangayhomqua.mp3', '', 100),
 (28, 'Shay nắng', 4, 'lyric của cạn cả nước mắt', 'Bài rap không bao giờ biển diễn của Karik', 5, 5, 'shaynang.mp3', '', 100),
 (29, 'Nắng ấm xa dần', 13, 'lyric của suýt nữa thì', 'Bài hát của Andiez', 5, 5, 'nangamxadan.mp3', '', 100),
-(30, 'Gửi ngàn lời yêu', 13, 'lyric của 1 phút', 'Bài hát của Andiez', 5, 5, 'guinganloiyeu.mp3', '', 100);
+(30, 'Gửi ngàn lời yêu', 13, 'lyric của 1 phút', 'Bài hát của Andiez', 5, 5, 'guinganloiyeu.mp3', '', 100),
+(31, 'waiting for you', 1, 'lyric của waiting for you', 'Đây là bản nhạc hot nhất của MONO', 5, 2, 'waitingforyou.mp3', '', 100),
+(32, 'Em là', 1, 'lyric của em là', 'Đây là bản nhạc hot của MONO', 5, 2, 'emla.mp3', '', 100),
+(33, 'Quên anh đi', 1, 'lyric của quên anh đi', 'Đây là bản nhạc hot của MONO', 5, 2, 'quenanhdi.mp3', '', 100),
+(34, 'CUA', 9, 'lyric của CUA', 'Bài rap của HIEUTHUHAI', 5, 5, 'cua.mp3', '', 100),
+(35, 'Bật nhạc lên', 9, 'lyric của bật nhạc lên', 'Bài rap của HIEUTHUHAI', 5, 5, 'batnhaclen.mp3', '', 100),
+(36, 'Hướng dương', 9, 'lyric của hướng dương', 'Bài rap của HIEUTHUHAI', 5, 5, 'huongduong.mp3', '', 100),
+(37, 'Cảm giác lúc ấy sẽ ra sao', 9, 'Lời bài hát của cảm giác lúc ấy sẽ ra sao', 'Bài nhạc hot của Lou Hoàng', 5, 2, 'camgiaclucayserasao.mp3', '', 100),
+(38, 'Bắt cóc con tim', 9, 'lyric của bắt cóc con tim', 'Bài rap của Lou Hoàng', 5, 5, 'batcoccontim.mp3', '', 100),
+(39, 'Là bạn không thể yêu', 9, 'lyric của là bạn không thể yêu', 'Bài hit của Lou Hoàng', 5, 2, 'labankhongtheyeu.mp3', '', 100),
+(40, 'Tình đầu', 7, 'lời bài tình đầu', 'Nhạc của tăng duy tân', 5, 2, 'tinhdau.mp3', '', 100),
+(41, 'Bên trên tầng lầu', 7, 'lời bài hát bên trên tầng lầu', 'bài rap của tăng duy tân', 5, 5, 'bentrentanglau.mp3', '', 100),
+(42, 'Em ơi đừng khóc', 7, 'lời bài hát em ơi đừng khóc', 'bài rap của tăng duy tân', 5, 5, 'emoidungkhoc.mp3', '', 100),
+(43, 'Suýt nữa thì', 13, 'lyric của suýt nữa thì', 'Bài hát của Andiez', 5, 2, 'suytnuathi.mp3', '', 100),
+(44, '1 phút', 13, 'lyric của 1 phút', 'Bài hát của Andiez', 5, 2, '1phut.mp3', '', 100),
+(45, 'Quá khứ chỉ nên là quá khứ', 13, 'lyric của Quá khứ chỉ nên là quá khứ', 'Bài hát của Andiez', 5, 2, 'quakhuchinenlaquakhu.mp3', '', 100),
+(46, 'Đi để trở về', 10, 'lyric của đi để trở về', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'didetrove.mp3', '', 100),
+(47, 'Anh đã quen với cô đơn', 10, 'lyric của Anh đã quen với cô đơn', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'anhdaquenvoicodon.mp3', '', 100),
+(48, 'Phía sau một cô gái', 10, 'lyric của Phía sau một cô gái', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'phiasaumotcogai.mp3', '', 100),
 
 -- --------------------------------------------------------
 
