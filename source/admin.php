@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ quản lý</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="./css/admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="side-part">
@@ -41,26 +43,26 @@
                                 <th>ID</th>
                                 <th>Tên bài hát</th>
                                 <th>Nghệ sĩ</th>
-                                <th>Hình Ảnh</th>  
+                                <th>Hình Ảnh</th>
                                 <th>Thao tác</th>
-                            </tr>                    
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>ID</td>
+                                <td>1</td>
                                 <td>Tên bài hát</td>
                                 <td>Nghệ sĩ</td>
                                 <th>Hình Ảnh</th>
                                 <th>
                                     <button id="btnEdit"><a href="">Chỉnh sửa</a></button>
                                     <button id="btnDel"><a href="">Xóa</a></button>
-                                </th>  
-                            </tr>  
+                                </th>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            
+
             <div id="userManage" style="display: none;">
                 <div class="content-header">
                     <h3>Quản lý người dùng</h3>
@@ -72,9 +74,9 @@
                                 <th>ID</th>
                                 <th>Tên bài hát</th>
                                 <th>Nghệ sĩ</th>
-                                <th>Hình Ảnh</th>  
+                                <th>Hình Ảnh</th>
                                 <th>Thao tác</th>
-                            </tr>                    
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -85,13 +87,13 @@
                                 <th>
                                     <button id="btnEdit"><a href="">Chỉnh sửa</a></button>
                                     <button id="btnDel"><a href="">Xóa</a></button>
-                                </th>  
-                            </tr>  
+                                </th>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            
+
             <div id="categoryManage" style="display: none;">
                 <div class="content-header">
                     <h3>Quản lý danh mục</h3>
@@ -103,9 +105,9 @@
                                 <th>ID</th>
                                 <th>Tên bài hát</th>
                                 <th>Nghệ sĩ</th>
-                                <th>Hình Ảnh</th>  
+                                <th>Hình Ảnh</th>
                                 <th>Thao tác</th>
-                            </tr>                    
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -116,15 +118,16 @@
                                 <th>
                                     <button id="btnEdit"><a href="">Chỉnh sửa</a></button>
                                     <button id="btnDel"><a href="">Xóa</a></button>
-                                </th>  
-                            </tr>  
+                                </th>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </body>
-<script src="admin.js"></script>
+<script src="./js/admin.js"></script>
+
 </html>

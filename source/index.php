@@ -22,7 +22,7 @@ session_start();
 <body>
 	<nav class="navbar">
 		<div class="container">
-			<h1 class="nav-left"><i class="mx-2 bi bi-boombox"></i>Music Page</h1>
+			<h1 class="nav-left"><i class="mx-2 bi bi-boombox"></i><a class="text-decoration-none text-dark" href="index.php">Music Page</a></h1>
 			<div class="search">
 				<i class="bi bi-search"></i>
 				<input type="text" name="search-song" id="search-song" placeholder="Tìm kiếm" />

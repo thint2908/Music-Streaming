@@ -342,7 +342,7 @@ function playMusic(audio) {
 		music.src = urlList[index];
 		music.play();
 		isPlaying = false;
-		$(".footer  .song-name").text(nameList[index].id);
+		$(".footer .song-name").text(nameList[index].id);
 	});
 	prevBtn.click(function (e) {
 		if ($("#play-btn").css("display") === "inline-block") {

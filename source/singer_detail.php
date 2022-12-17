@@ -1,7 +1,11 @@
 <?php
 require_once("./api/connection.php");
 session_start();
-$_SESSION['idSinger'] = $_GET['id'];
+if (isset($_SESSION['idSinger'])) {
+	$_SESSION['idSinger'] = $_GET['id'];
+} else {
+	$_SESSION['idSinger'] = '';
+}
 // echo $_SESSION['idSinger'];
 
 
@@ -26,7 +30,7 @@ $_SESSION['idSinger'] = $_GET['id'];
 <body>
 	<nav class="navbar">
 		<div class="container">
-			<h1 class="nav-left"><i class="mx-2 bi bi-boombox"></i>Music Page</h1>
+			<h1 class="nav-left"><i class="mx-2 bi bi-boombox"></i><a class="text-decoration-none text-dark" href="index.php">Music Page</a></h1>
 			<div class="search">
 				<i class="bi bi-search"></i>
 				<input type="text" name="search-song" id="search-song" placeholder="Tìm kiếm" />
@@ -97,15 +101,12 @@ $_SESSION['idSinger'] = $_GET['id'];
 						<div class="row">
 							<div class="col-lg-3 text-center">
 								<div class="img-singer">
-									<img src="https://i.scdn.co/image/ab6761610000e5eb9896fc9a2e28384f2d705c45" alt="vu" />
+									<img id="singer-avatar" src="./img/music.jpg" alt="vu" />
 								</div>
 							</div>
 							<div class="col-lg-2 singer-text">
-								<h1>Vũ.</h1>
+								<h1 id="singer-name"></h1>
 								<p>Việt Nam</p>
-								<div class="singer-birth">
-									<p>3/10/1995</p>
-								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="text-end follow-button">
@@ -126,15 +127,15 @@ $_SESSION['idSinger'] = $_GET['id'];
 						</div>
 					</div>
 					<!-- <button type="button" class="btn btn-warning">Warning</button> -->
-					<h3 class="col-lg story">Câu chuyện của Vũ.</h3>
+					<h3 class="col-lg story-title">Câu chuyện của Vũ.</h3>
 					<p class="col-lg singer-des">Trước khi nổi tiếng, Vũ. thường đăng tải các sáng tác của mình trên Soundcloud. Thể loại của anh theo đuổi là nhạc Indie Pop, Acoustic, Rock... .
 						Năm 2016, Vũ. phát hành các sáng tác của anh và gặt hái được thành công trong giới indie Việt. Các hit tiêu biểu của Vũ. với "Đông Kiếm Em", "Mùa Mưa Ngâu Nằm Cạnh", "Chuyện Những Người Yêu Xa", và album "Vũ Trụ Song Song" ra mắt năm 2019.
 						Năm 2020, Vũ. ký hợp đồng với Warner Music Group và trở thành nghệ sĩ trực thuộc công ty.</p>
 					<h3 class="col-lg popular-song">Bài hát phổ biến</h3>
 
 					<!-- list nhac pho bien -->
-					<div class="row">
-						<div class="col-lg-5 song-list">
+					<div class="row list-song-singer" id="music-container">
+						<!-- <div class="col-lg-5 song-list">
 							<div class="song-info">
 								<div class="song-name">Vì anh đâu có biết</div>
 								<div class="song-author">Madihu ft Vũ.</div>
@@ -181,7 +182,7 @@ $_SESSION['idSinger'] = $_GET['id'];
 								<div class="song-name">Vì anh đâu có biết</div>
 								<div class="song-author">Madihu ft Vũ.</div>
 							</div>
-						</div>
+						</div> -->
 
 					</div>
 					<br><br>
@@ -191,8 +192,8 @@ $_SESSION['idSinger'] = $_GET['id'];
 						<div class="list-top-song">
 							<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 								<div class="carousel-inner">
-									<div class="carousel-item active">
-										<div class="list-body">
+									<div class="carousel-item active carousel-item1">
+										<!-- <div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
 													<img src="./img/an-huynh.jpg" alt="" />
@@ -217,10 +218,10 @@ $_SESSION['idSinger'] = $_GET['id'];
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
-									<div class="carousel-item">
-										<div class="list-body">
+									<div class="carousel-item carousel-item2">
+										<!-- <div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
 													<img src="./img/an-huynh.jpg" alt="" />
@@ -245,10 +246,10 @@ $_SESSION['idSinger'] = $_GET['id'];
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
-									<div class="carousel-item">
-										<div class="list-body">
+									<div class="carousel-item carousel-item3">
+										<!-- <div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
 													<img src="./img/an-huynh.jpg" alt="" />
@@ -273,7 +274,7 @@ $_SESSION['idSinger'] = $_GET['id'];
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -313,18 +314,18 @@ $_SESSION['idSinger'] = $_GET['id'];
 	</div>
 	<!-- ./body -->
 	<!-- footer -->
-	<footer class="footer">
+	<!-- <footer class="footer">
 		<div class="footer-body">
 			<div class="song-info">
 				<div class="img-song">
-					<img src="./img/an-huynh.jpg" alt="" />
+					<img src="./img/music.jpg" alt="" />
 				</div>
-				<div class="song-name">Đưa nhau đi trốn |</div>
-				<div class="song-author">Đen Vâu</div>
+				<div class="song-name"></div>
+				<div class="song-author"></div>
 			</div>
 			<div class="music-status">
 				<div class="music-timer">
-					<input type="range" name="music-time" id="" />
+					<input type="range" name="music-time" id="musicTimer" />
 				</div>
 				<div class="music-option">
 					<div id="shuffle-btn" class="option-btn">
@@ -345,10 +346,51 @@ $_SESSION['idSinger'] = $_GET['id'];
 				</div>
 			</div>
 		</div>
+	</footer> -->
+	<footer class="footer">
+		<div class="footer-body">
+			<div class="song-info">
+				<div class="img-song">
+					<img id="img-singer-footer" src="./img/music.jpg" alt="" />
+				</div>
+				<div class="song-name"></div>
+				<!-- <div class="song-author">Đen Vâu</div> -->
+			</div>
+			<div class="music-status">
+				<div class="music-timer">
+					<p class="song-currTime">00:00</p>
+					<p class="song-totalTime">00:00</p>
+					<input value="0" type="range" name="music-timer" id="musicTimer" onchange="changeCurrentTime(this.value)" />
+					<div class="volume-bar bi bi-volume-up-fill">
+						<!-- <i class="bi bi-volume-up-fill"></i> -->
+						<input value="1" type="range" name="volume" id="volume" max='1' min="0" step="0.01" onchange="changeVolume(this.value)">
+					</div>
+				</div>
+				<div class="music-option">
+					<div id="shuffle-btn" class="option-btn">
+						<i class="bi bi-shuffle"></i>
+					</div>
+					<div id="prev-btn" class="option-btn">
+						<i class="bi bi-skip-backward-circle"></i>
+					</div>
+					<div id="play-btn" class="option-btn play-btn" style="display: inline-block">
+						<i class="bi bi-play-circle"></i>
+					</div>
+					<div id="pause-btn" class="option-btn pause-btn" style="display: none">
+						<i class="bi bi-pause-circle"></i>
+					</div>
+					<div id="next-btn" class="option-btn">
+						<i class="bi bi-skip-forward-circle"></i>
+					</div>
+				</div>
+			</div>
+		</div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 	<script src="./js/index.js"></script>
 	<script src="./js/login.js"></script>
+	<script src="./js/singerDetail.js"></script>
 </body>
 <!-- JavaScript Bundle with Popper -->
 
