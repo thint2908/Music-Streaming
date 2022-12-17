@@ -3,6 +3,7 @@ let playBtn = $("#play-btn");
 let pauseBtn = $("#pause-btn");
 let songNameFooter = $(".song-name");
 let songNameAuthorFooter = $(".song-author");
+let imgSingerFooter = $("#img-singer-footer");
 let rangeBar = document.getElementById("musicTimer");
 let songCurrTime = $(".song-currTime");
 let songTotalTime = $(".song-totalTime");
@@ -11,6 +12,8 @@ let nextBtn = $("#next-btn");
 let prevBtn = $("#prev-btn");
 let urlList = [];
 let nameList;
+let randomBtn = $("#shuffle-btn");
+let randomBtnFlag = false;
 const music = new Audio();
 
 // load mucsic and render music into singer list song
@@ -51,7 +54,7 @@ function show_singer(response) {
 		let r = response[i];
 		let singer = `
 			<div class="singer">
-				<div class="singer-name">${r.name}</div>
+				<div class="singer-name"><a target="blank" href=singer_detail.html?id=${r.id}>${r.name}</a></div>
 				<div class="singer-image" style="display:none">${r.image}</div>
 			</div>
 		`;
@@ -73,40 +76,57 @@ function loadTopMusic(url) {
 //get and handle response
 function show_top_music(response) {
 	let count = 0;
+	let countImg = 0;
+	let countId = 0;
+	let countName = 0;
+	let countUrl = 0;
+	let countSingerName = 0;
 	for (let i = 1; i < 4; i++) {
 		let list_top_song = $(".carousel-item" + i);
 
 		let item = `
 											<div class="list-body">
-												<div class="list-item">
-													<div class="img-song">
-														<img src="./img/an-huynh.jpg" alt="" />
-													</div>
-													<div class="song-name">${response[count].name}</div>
+												<div class="list-item" onclick="playMusic(${response[countId].id})">
+												<div class="img-song">
+												<img src="${response[countImg].image}" alt="" />
 												</div>
-												<div class="list-item">
+												<div class="song-name">${response[countName].name}</div>
+												<audio class='${response[count].name} | ${response[countSingerName].singer_name}'  id='${response[count].id}' src="./musics/${response[countUrl].url}" type='audio/mp3'>
+												</div>
+
+												<div class="list-item" onclick="playMusic(${response[countId++].id})">
 													<div class="img-song">
-														<img src="./img/an-huynh.jpg" alt="" />
+														<img src="${response[countImg++].image}" alt="" />
 													</div>
 													<div class="song-name">${response[count++].name}</div>
+													<audio class='${response[count].name} | ${response[countSingerName++].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl++].url}" type='audio/mp3'>
 												</div>
-												<div class="list-item">
+
+												<div class="list-item" onclick="playMusic(${response[countId++].id})">
 													<div class="img-song">
-														<img src="./img/an-huynh.jpg" alt="" />
+														<img src="${response[countImg++].image}" alt="" />
 													</div>
 													<div class="song-name">${response[count++].name}</div>
+													<audio class='${response[count].name} | ${response[countSingerName++].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl++].url}" type='audio/mp3'>
 												</div>
-												<div class="list-item">
+
+												<div class="list-item" onclick="playMusic(${response[countId++].id})">
 													<div class="img-song">
-														<img src="./img/an-huynh.jpg" alt="" />
+														<img src="${response[countImg++].image}" alt="" />
 													</div>
 													<div class="song-name">${response[count++].name}</div>
+													<audio class='${response[count].name} | ${response[countSingerName++].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl++].url}" type='audio/mp3'>
 												</div>
 											</div>
 											
 										
 			`;
 		count++;
+		countImg++;
+		countId++;
+		countName++;
+		countUrl++;
+		countSingerName++;
 		list_top_song.append(item);
 	}
 }
@@ -159,6 +179,7 @@ function show_data(data) {
 					<div onclick='playMusic(${row.id})' class="song-info">
 						<div id='${row.name}|${row.singer_name}' class="song-name ">${row.name}</div>
 						<div id='${row.singer_name}' class="song-author ">${row.singer_name}</div>
+						<img class="img-singer" src="${row.image}" style="display:none"/>
 					</div>
 	  				<div class="song-download">
 					<a href="./musics/${row.url}" download> 
@@ -208,6 +229,7 @@ function show_data(data) {
 	});
 }
 
+// bat dau load data =================================================================
 $(function () {
 	load_singer("./api/loadSinger.php");
 	loadMusic("./api/loadMusic.php");
@@ -248,6 +270,7 @@ function playMusic(audio) {
 	});
 	// ./ handle name footer
 	$(".footer  .song-name").text(nameFooter);
+	// imgSingerFooter.attr("src", "." + document.getElementById("img-singer").src.slice(33));
 	isPlaying = true;
 	// music.load();
 	if (isPlaying) {
@@ -285,28 +308,20 @@ function playMusic(audio) {
 
 	setInterval(() => {
 		displayTimer();
+		if (music.currentTime > music.duration - 0.05) {
+			nextBtn.click();
+		}
 	}, 500);
 	let index;
 	function getCurrentSongList() {
 		urlList = [];
 		let songList = $(".song-list");
 		nameList = $("#music-container .song-name");
-		console.log(nameList[0].id);
+		// console.log(nameList[0].id);
 		for (let element of songList) {
 			urlList.push(element.id);
 		}
-		var result = Object.keys(urlList).map((key) => [Number(key), urlList[key]]);
 		currIndex = "." + url.src.slice(33);
-		// currIndex = urlList
-		// 	.map(function (e) {
-		// 		return e;
-		// 	})
-		// 	.indexOf(url.src);
-		// console.log(result.indexOf(currIndex));
-		console.log(typeof currIndex);
-		console.log(currIndex);
-		console.log(urlList);
-		console.log(typeof urlList);
 		for (let i = 0; i < urlList.length; i++) {
 			if (urlList[i] == currIndex) {
 				index = i;
@@ -314,6 +329,7 @@ function playMusic(audio) {
 		}
 	}
 	getCurrentSongList();
+
 	nextBtn.click(function (e) {
 		if ($("#play-btn").css("display") === "inline-block") {
 			$("#play-btn").css("display", "none");
@@ -344,7 +360,6 @@ function playMusic(audio) {
 	});
 }
 document.addEventListener("keydown", function (event) {
-	console.log(event);
 	if (event.keyCode == 80) {
 		pauseBtn.click();
 	}
@@ -378,13 +393,14 @@ function formatTimer(number) {
 	}
 	return `0${minutes}:${seconds}`;
 }
-function changeStatusFooter(name, singerName, url) {
+function changeStatusFooter(name, singerName, image) {
 	songNameAuthorFooter.text(singerName);
 	songNameFooter.text(name);
+	imgSingerFooter.src(image);
 }
 function changeVolume(amount) {
 	music.volume = amount;
-	console.log(music.volume);
+	// console.log(music.volume);
 	if (music.volume === 0) {
 		$(".volume-bar").addClass("bi bi-volume-mute-fill");
 		$(".volume-bar").removeClass("bi bi-volume-up-fill");
@@ -395,4 +411,9 @@ function changeVolume(amount) {
 }
 function changeCurrentTime(amount) {
 	music.currentTime = amount;
+}
+function autoNextSong() {
+	if (music.currentTime > music.duration - 1) {
+		console.log("end song");
+	}
 }

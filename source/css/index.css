@@ -90,6 +90,10 @@ body {
 	margin: 12px 0;
 	padding: 8px 16px;
 }
+.right-body-container .singer .singer-name a {
+	text-decoration: none;
+	color: #000;
+}
 /* ./body-right */
 .img-singer img {
 	width: 200px;
@@ -124,6 +128,7 @@ body {
 }
 .cur-song-list .singer-list .download-btn {
 	margin-right: 8px;
+	color: #000;
 }
 .top-music {
 	padding-top: 16px;
@@ -215,16 +220,17 @@ body {
 }
 .footer .song-currTime {
 	position: absolute;
-	top: 10px;
+	top: 14px;
 	font-size: 14px;
 }
 .footer .song-totalTime {
 	position: absolute;
 	right: 0;
-	top: 10px;
+	top: 14px;
 	font-size: 14px;
 }
 .footer .music-timer input {
+	cursor: pointer !important;
 	width: 100%;
 }
 
@@ -237,6 +243,7 @@ body {
 	width: 28%;
 }
 .footer #volume {
+	cursor: pointer;
 	width: 80%;
 }
 .footer .music-option {

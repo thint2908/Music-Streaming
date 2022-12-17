@@ -34,7 +34,7 @@ session_start();
 					$userName = $_SESSION['userName'];
 					echo "
 					<div class='user-avatar'>
-					<img src='./img/an-huynh.jpg' alt='' class='img-user' />
+					<img src='./img/music.jpg' alt='' class='img-user' />
 					<p class='user-name'>$userName</p>
 						</div>
 					<div class='nav-logout d-inline'>
@@ -97,7 +97,7 @@ session_start();
 							<!-- <input type="search" /> -->
 							<div class="title">Top Song 2022</div>
 							<div class="img-singer">
-								<img src="./img/an-huynh.jpg" alt="an-huynh" />
+								<img src="./img/music.jpg" alt="an-huynh" />
 							</div>
 						</div>
 						<div class="col-lg-8">
@@ -276,7 +276,7 @@ session_start();
 		<div class="footer-body">
 			<div class="song-info">
 				<div class="img-song">
-					<img src="./img/an-huynh.jpg" alt="" />
+					<img id="img-singer-footer" src="./img/music.jpg" alt="" />
 				</div>
 				<div class="song-name"></div>
 				<!-- <div class="song-author">Đen Vâu</div> -->
