@@ -54,7 +54,7 @@ function show_singer(response) {
 		let r = response[i];
 		let singer = `
 			<div class="singer">
-				<div class="singer-name"><a target="blank" href=singer_detail.html?id=${r.id}>${r.name}</a></div>
+				<div class="singer-name"><a target="blank" href=singer_detail.php?id=${r.id}>${r.name}</a></div>
 				<div class="singer-image" style="display:none">${r.image}</div>
 			</div>
 		`;
