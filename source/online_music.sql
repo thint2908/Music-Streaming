@@ -147,7 +147,7 @@ INSERT INTO `music_list` (`id`, `name`, `singer_id`, `lyrics`, `description`, `v
 (45, 'Quá khứ chỉ nên là quá khứ', 13, 'lyric của Quá khứ chỉ nên là quá khứ', 'Bài hát của Andiez', 5, 2, 'quakhuchinenlaquakhu.mp3', '', 100),
 (46, 'Đi để trở về', 10, 'lyric của đi để trở về', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'didetrove.mp3', '', 100),
 (47, 'Anh đã quen với cô đơn', 10, 'lyric của Anh đã quen với cô đơn', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'anhdaquenvoicodon.mp3', '', 100),
-(48, 'Phía sau một cô gái', 10, 'lyric của Phía sau một cô gái', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'phiasaumotcogai.mp3', '', 100),
+(48, 'Phía sau một cô gái', 10, 'lyric của Phía sau một cô gái', 'Bài hát tết của Soobin Hoàng Sơn', 5, 2, 'phiasaumotcogai.mp3', '', 100);
 
 -- --------------------------------------------------------
 
