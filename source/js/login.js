@@ -1,9 +1,9 @@
 let register = document.getElementById("register");
-let login = document.getElementById("login-btn");
+let login = $("#login-btn")
 let registerForm = document.getElementById("register-form");
 let loginForm = document.getElementById("login-form");
 
-login.addEventListener("click", function () {
+login.click( function () {
 	// alert("ahihi");
 	loginForm.style.display = "block";
 	registerForm.style.display = "none";
