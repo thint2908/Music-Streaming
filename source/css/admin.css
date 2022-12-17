@@ -3,22 +3,22 @@
     margin: 0;
 }
 
-.container{
-    width: 100%;
+.container-fluid{
+   
     height: fit-content;
     display: flex;
     flex-direction: row;
 }
 
+
 .side-part{
-    width: 20%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(148, 187, 233, 1);
     border: 0.5px solid black;
 }
 
 .content-part{
-    width: 80%;
+    width: 101%;
     height: 100vh;
     background-color: rgba(238, 174, 202, 0.3);
 }
@@ -71,7 +71,7 @@ a:-webkit-any-link{
 }
 
 .content-search{
-    margin: 15px 15px;
+    margin-left:15px ;
 }
 
 #inputSearch{
@@ -114,17 +114,28 @@ a:-webkit-any-link{
 
 
 #btnEdit{
+    font-size: 15px;
     width: max-content;
     height: 30px;
     border: none;
-    border-radius: 30px;
-    background-color: yellow;
+    border-radius: 5px;
+    background-color: #94bbe9;
 }
 
 #btnDel{
+    font-size: 15px;
     width: max-content;
     height: 30px;
     border: none;
-    border-radius: 30px;
-    background-color: red;
+    border-radius: 5px;
+    background-color: #df0231;
+}
+#btnAdd{
+    font-size: 15px;
+    margin-left: 40px;
+    width: max-content;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #94bbe9;
 }
