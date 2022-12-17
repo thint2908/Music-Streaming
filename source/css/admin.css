@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.side-part{
+    width: 20%;
+    height: 100vh;
+    background-color: rgba(148, 187, 233, 1);
+    border: 0.5px solid black;
+}
+
+.content-part{
+    width: 80%;
+    height: 100vh;
+    background-color: rgba(238, 174, 202, 0.3);
+}
+
+.side-logo{
+    width: 100%;
+    height: 15%;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-logo h3{
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+}
+
+.side-content{
+    margin: 15px 0;
+    width: 100%;
+    height: 40%;
+    border-bottom: 1px solid black;
+}
+
+.side-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-content p{
+    padding-bottom: 20px;
+    font-size: 1.5rem;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+a:-webkit-any-link{
+    text-decoration: none;
+    color: black;
+}
+
+.side-logout{
+    width: 100%;
+    height: 10%;
+    padding-left: 15px;
+    font-size: 1.5rem;
+}
+
+.content-search{
+    margin: 15px 15px;
+}
+
+#inputSearch{
+    width: 80%;
+    height: 30px;
+    border: none;
+    border-radius: 15px 0 0 15px;
+    padding-left: 10px;
+    margin-right: 0px !important;
+}
+
+#btnSearch{
+    width: max-content;
+    height: 30px;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    background-color: rgba(148, 187, 233, 1);
+}
+
+.content-header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    padding-left: 15px;
+    font-size: 30px;
+}
+.content-table{
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+.song-table{
+    width: 100%;
+    height: max-content;
+    text-align: center;
+}
+
+
+#btnEdit{
+    width: max-content;
+    height: 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: yellow;
+}
+
+#btnDel{
+    width: max-content;
+    height: 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: red;
+}
