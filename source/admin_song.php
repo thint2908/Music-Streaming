@@ -46,11 +46,35 @@
 								</div>
 								<div class="col-lg">
 									<label class="form-label">ID ca sĩ</label>
-									<input type="password" class="form-control" id="input-singer-id">
+									<input type="text" class="form-control" id="input-singer-id">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Lyrics</label>
+									<input type="text" class="form-control" id="input-lyrics">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Mô tả</label>
+									<input type="text" class="form-control" id="input-song-des">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Đánh giá</label>
+									<input type="text" class="form-control" id="input-rating">
 								</div>
 								<div class="col-lg">
 									<label class="form-label">ID thể loại</label>
-									<input type="password" class="form-control" id="input-cate-id">
+									<input type="text" class="form-control" id="input-cate-id">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Tải file nhạc</label>
+									<input type="text" class="form-control" id="input-song-url">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Tải file ảnh nhạc</label>
+									<input type="text" class="form-control" id="input-song-img">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Lượt nghe</label>
+									<input type="text" class="form-control" id="input-listens">
 								</div>
 								<br>
 								<button type="submit" class="btn btn-primary">Thêm</button>

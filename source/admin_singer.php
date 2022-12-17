@@ -42,7 +42,11 @@
 								</div>
 								<div class="col-lg">
 									<label class="form-label">Tên ca sĩ</label>
-									<input type="password" class="form-control" id="input-singer-name">
+									<input type="text" class="form-control" id="input-singer-name">
+								</div>
+								<div class="col-lg">
+									<label class="form-label">Tải file ảnh ca sĩ</label>
+									<input type="text" class="form-control" id="input-singer-img">
 								</div>
 								<br>
 								<button type="submit" class="btn btn-primary">Thêm</button>
@@ -52,15 +56,14 @@
 				  	<div class="col-lg-3"></div>
 
 					<div class="row">
-						<div class="col-lg-11">
+						<div class="col-lg-2 text-center"></div>
+						<div class="col-lg text-center">
 							<table class="table table-striped">                     
 								<div class="table responsive">
 								  	<thead>
 										<tr>
 											<th>ID ca sĩ</th>
 											<th>Tên ca sĩ</th>
-											<th>Vote</th>
-											<th>Lượt theo dõi</th>
 											<th>Thao tác</th>
 										</tr>
 								  	</thead>
@@ -68,21 +71,18 @@
 										<tr>
 											<td>1</td>
 											<td>Vũ.</td>
-											<td>5/5</td>
-											<td>5000000</td>
 											<td><a href="">chỉnh sửa</a> <a href="">xóa</a></td>
 										</tr>
 										<tr>
 											<td>2</td>
 											<td>Vũ.</td>
-											<td>5/5</td>
-											<td>5000000</td>
 											<td><a href="">chỉnh sửa</a> <a href="">xóa</a></td>
 										</tr>
 								  	</tbody>
 								</div>
 							</table>
 						</div>
+						<div class="col-lg-3 text-center"></div>
 					</div>
 				</div>
 			</div>
