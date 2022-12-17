@@ -44,6 +44,7 @@
 											<th>Tên tài khoản</th>
 											<th>Mật khẩu</th>
 											<th>Email</th>
+											<th>Tên người dùng</th>
 											<th>Thao tác</th>
 										</tr>
 								  	</thead>
@@ -53,6 +54,7 @@
 											<td>abc</td>
 											<td>123</td>
 											<td>abc@gmail.com</td>
+											<td>Nguyễn Văn A</td>
 											<td><a href="">chỉnh sửa</a> <a href="">xóa</a></td>
 										</tr>
 										<tr>
@@ -60,6 +62,7 @@
 											<td>abc</td>
 											<td>123</td>
 											<td>abc@gmail.com</td>
+											<td>Nguyễn Văn A</td>
 											<td><a href="">chỉnh sửa</a> <a href="">xóa</a></td>
 										</tr>
 								  	</tbody>
