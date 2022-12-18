@@ -77,7 +77,7 @@ session_start();
 					</ul>
 					<span class="leftBody-title">My music</span>
 					<ul class="list-option">
-						<li class="leftBody-myMusic">Liked song</li>
+						<li class="leftBody-myMusic"><a style="text-decoration: none; color:#000;" href="Liked_song.php">Liked song</a></li>
 						<li class="leftBody-myMusic">Album</li>
 						<li class="leftBody-myMusic">Artist</li>
 						<li class="leftBody-myMusic">Recent</li>
