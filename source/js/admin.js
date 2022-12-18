@@ -25,27 +25,26 @@ function show_music(data){
             <tr>
                 <td>
                     ${r.id}
-                </th>
+                </td>
                 
                 <td>
                     ${r.name}
-                </th>
-                
+                </td>               
                 <td>
                     ${r.singer_name}
-                </th>
+                </td>
                 
                 <td>
                     ${r.category_name}
-                </th>
+                </td>
                 
                 <td>
                     <img src=${r.image} width="100px" height="100px">
-                </th>
+                </td>
                 <td>
                     <button class="editBtn btn btn-primary">Chỉnh sửa</button>
                     <button class="deleteBtn btn btn-danger">Xóa</button>
-                </th>
+                </td>
             </tr>
         `
         songBody.append(tr);
@@ -141,6 +140,64 @@ function load_user(link) {
 	});
 }
 
+function show_user(data){
+    let userBody = $("#userBody");
+    for(let i = 0; i < data.length; i++){
+        let r = data[i];
+        
+        let tr = `
+            <tr>
+                <td>
+                    ${r.id}
+                </td>
+                
+                <td>
+                    ${r.name}
+                </td>               
+                <td>
+                    ${r.username}
+                </td>
+                
+                <td>
+                    ${r.password}
+                </td>
+                
+                <td>
+                    <button class="editBtnUser btn btn-primary">Chỉnh sửa</button>
+                    <button class="deleteBtnUser btn btn-danger">Xóa</button>
+                </td>
+            </tr>
+        `
+        userBody.append(tr);
+    }
+    //active 2 button above
+
+    //edit btn
+    // $(".editBtnUser").click(function(){
+    //     let thisRow = $(this).parent().parent().children();
+    //     let userID = thisRow[0].innerText;
+    //     let userName = thisRow[1].innerText;
+    //     $("#update-song-name").val(songName);
+    //     $("#update-song-id").val(userName);
+    //     $("#updateMusicModal").modal({
+    //         backdrop: 'static',
+    //         keyboard: false
+    //     });
+    // })
+
+    //delete button
+    // $(".deleteBtnUser").click(function(){
+    //     let userID = $(this).parent().parent().children()[0].innerText;
+    //     let userName = $(this).parent().parent().children()[1].innerText;
+    //     $("#songId").val(userID);
+    //     $("#songDeleteText").html("Bạn có muốn xóa \"" +userName+"\" ra khỏi danh sách");
+    //     $("#deleteMusicModal").modal({
+    //         backdrop: 'static',
+    //         keyboard: false
+    //     });
+    // })
+
+}
 
 //category part
 
@@ -160,19 +217,50 @@ function load_category(link){
 function show_category(data){
     let category_add = $("#add-song-category")
     let category_update = $("#update-song-category")
+    let category_body = $("#categoryBody")
     for(let i = 0; i < data.length; i++){
         let r = data[i];
         let opt =`
             <option value=${r.id}>${r.name}</option>
         `
+        let tr = `
+            <tr>
+                <td colspan="2">
+                    ${r.id}
+                </td>
+                <td colspan="8">
+                    ${r.name}
+                </td>
+                <td colspan="2">
+                    <button class="btn btn-primary editCaBtn">Chỉnh sửa</button>
+                </td>
+            </tr>
+        `;
         category_add.append(opt);
         category_update.append(opt);
+        category_body.append(tr);
     }
+    // Kích hoạt modal xóa và sửa thể loại âm nhạc
+    $(".editCaBtn").click(function(){
+        let caName = $(this).parent().parent().children()[1].innerText;
+        let caId = $(this).parent().parent().children()[0].innerText;
+        $("#ca-edit-name").val(caName);
+        $("#ca-edit-id").val(caId);
+        $("#editCaModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
 }
+
+
+
+
 $(document).ready(function() {
 	//Phân trang
     load_music("./api/adminController/loadMusic.php");
     load_singer("./api/adminController/loadSinger.php")
+    load_user("./api/adminController/LoadUser.php");
     load_category("./api/adminController/loadCategory.php");
 
     $("#song").click(function(){
@@ -216,6 +304,59 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: './api/adminController/deleteMusic.php',
+            data: $(this).serialize(),
+            success: function (response1) {
+                var jsonData1 = JSON.parse(response1);
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData1.code == "1") {
+                    alert(jsonData1.message);
+                    location.href = './admin.php';
+                }
+                else {
+                
+                }
+            }
+        });
+    })
+
+//thêm sửa thể loại
+   
+        $(".addCaBtn").click(function(e) {
+            e.preventDefault();
+               console.log('a');
+               $("#addCaModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+    
+    $("#editCaForm").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: './api/updateCate.php',
+            data: $(this).serialize(),
+            success: function (response1) {
+                var jsonData1 = JSON.parse(response1);
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData1.code == "1") {
+                    alert(jsonData1.message);
+                    location.href = './admin.php';
+                }
+                else {
+                
+                }
+            }
+        });
+    })
+
+    $("#addCaForm").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: './api/addCate.php',
             data: $(this).serialize(),
             success: function (response1) {
                 var jsonData1 = JSON.parse(response1);
