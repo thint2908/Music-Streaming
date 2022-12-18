@@ -16,7 +16,7 @@ session_start();
 	<link rel="stylesheet" href="css/index.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel='shortcut icon' href='./icon/music.ico' /> 
+	<link rel='shortcut icon' href='./icon/music.ico' />
 	<title>Music Online Page</title>
 </head>
 
@@ -102,7 +102,7 @@ session_start();
 							</div>
 						</div>
 						<div class="col-lg-8">
-							<div class="singer-list" id="music-container">
+							<div class="singer-list name-song" id="music-container">
 								<h1 id="singer-curr-list"></h1>
 								<!-- <div class="song-list">
 										<div class="song-info">
