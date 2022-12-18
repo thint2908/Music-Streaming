@@ -25,23 +25,22 @@ function show_music(data){
             <tr>
                 <td>
                     ${r.id}
-                </th>
+                </td>
                 
                 <td>
                     ${r.name}
-                </th>
-                
+                </td>               
                 <td>
                     ${r.singer_name}
-                </th>
+                </td>
                 
                 <td>
                     ${r.category_name}
-                </th>
+                </td>
                 
                 <td>
                     <img src=${r.image} width="100px" height="100px">
-                </th>
+                </td>
                 <td>
                     <button class="editBtn btn btn-primary">Chỉnh sửa</button>
                     <button class="deleteBtn btn btn-danger">Xóa</button>
