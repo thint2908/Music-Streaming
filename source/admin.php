@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    session_start();
-    if(!isset($_SESSION['userName'])){
-        header("Location: login.html");
-    }else{
-        if($_SESSION['userName'] != 'admin'){
-            header("Location: index.php");
-        }
+session_start();
+if (!isset($_SESSION['userName'])) {
+    header("Location: login.html");
+} else {
+    if ($_SESSION['userName'] != 'admin') {
+        header("Location: index.php");
     }
+}
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -290,19 +291,22 @@
                         </table>
                     </div>
                 </div>
-                
+
                 <!-- category part -->
                 <div id="categoryManage" style="display: none;">
                     <div class="content-header">
                         <h3>Quản lý danh mục</h3>
                     </div>
+                    <div>
+                        <button class="btn btn-success addCaBtn">Thêm</button>
+                    </div>
                     <div class="content-table">
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th colspan="2" >ID</th>
-                                    <th colspan="8" >Tên thể loại</th>
-                                    <th colspan="2" >Thao tác</th>
+                                    <th colspan="2">ID</th>
+                                    <th colspan="8">Tên thể loại</th>
+                                    <th colspan="2">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody id="categoryBody">
@@ -313,31 +317,64 @@
                 </div>
 
             </div>
-            <div id="deleteCaModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                            <form id="deleteCaForm" class="form" action="" method="post" enctype="multipart/form-data">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Xóa</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="md-3">
-                                            <label for="name" id="caDeleteText"></label>
-                                            <input type="text" name="caId" id="caId" hidden>
-                                        </div>
 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        <input class="btn btn-primary" type="submit" value="Xóa" name="submit">
-                                    </div>
-
+            <!-- edit modal -->
+            <div id="editCaModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <form id="editCaForm" class="form" action="" method="post" enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Sửa</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="md-3">
+                                    <input type="text" name="caId" id="ca-edit-id" hidden>
                                 </div>
-                            </form>
-                            <!-- Modal content-->
+                                <div class="md-3">
+                                    <label for="ca-edit-name" class="form-label"> Tên thể loại: </label>
+                                    <input type="text" class="form-control" name="caName" id="ca-edit-name">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Sửa" name="submit">
+                            </div>
+
                         </div>
-                    </div>
+                    </form>
+                    <!-- Modal content-->
+                </div>
+            </div>
+
+            <!-- add modal -->
+            <div id="addCaModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <form id="addCaForm" class="form" action="" method="post" enctype="multipart/form-data">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Thêm</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                        
+                                <div class="md-3">
+                                    <label for="ca-add-name" class="form-label"> Tên thể loại: </label>
+                                    <input type="text" class="form-control" name="caName" id="ca-add-name">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <input class="btn btn-primary" type="submit" value="Thêm" name="submit">
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- Modal content-->
+                </div>
+            </div>
         </div>
         <!-- end row -->
     </div>

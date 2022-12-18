@@ -176,7 +176,6 @@ function show_category(data){
                 </td>
                 <td colspan="2">
                     <button class="btn btn-primary editCaBtn">Chỉnh sửa</button>
-                    <button class="btn btn-warning deleteCaBtn">Xóa</button>
                 </td>
             </tr>
         `;
@@ -184,15 +183,22 @@ function show_category(data){
         category_update.append(opt);
         category_body.append(tr);
     }
-    $(".deleteCaBtn").click(function(){
-        let catId = $(this).parent().parent().children()[0].innerText;
-        let catName = $(this).parent().parent().children()[1].innerText;
-        $("#deleteCaModal").modal({
+    // Kích hoạt modal xóa và sửa thể loại âm nhạc
+    $(".editCaBtn").click(function(){
+        let caName = $(this).parent().parent().children()[1].innerText;
+        let caId = $(this).parent().parent().children()[0].innerText;
+        $("#ca-edit-name").val(caName);
+        $("#ca-edit-id").val(caId);
+        $("#editCaModal").modal({
             backdrop: 'static',
             keyboard: false
         });
     });
 }
+
+
+
+
 $(document).ready(function() {
 	//Phân trang
     load_music("./api/adminController/loadMusic.php");
@@ -240,6 +246,59 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: './api/adminController/deleteMusic.php',
+            data: $(this).serialize(),
+            success: function (response1) {
+                var jsonData1 = JSON.parse(response1);
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData1.code == "1") {
+                    alert(jsonData1.message);
+                    location.href = './admin.php';
+                }
+                else {
+                
+                }
+            }
+        });
+    })
+
+//thêm sửa thể loại
+   
+        $(".addCaBtn").click(function(e) {
+            e.preventDefault();
+               console.log('a');
+               $("#addCaModal").modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+        });
+    
+    $("#editCaForm").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: './api/updateCate.php',
+            data: $(this).serialize(),
+            success: function (response1) {
+                var jsonData1 = JSON.parse(response1);
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData1.code == "1") {
+                    alert(jsonData1.message);
+                    location.href = './admin.php';
+                }
+                else {
+                
+                }
+            }
+        });
+    })
+
+    $("#addCaForm").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: './api/addCate.php',
             data: $(this).serialize(),
             success: function (response1) {
                 var jsonData1 = JSON.parse(response1);
