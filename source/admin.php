@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+    session_start();
+    if(!isset($_SESSION['userName'])){
+        header("Location: login.html");
+    }else{
+        if($_SESSION['userName'] != 'admin'){
+            header("Location: index.php");
+        }
+    }
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -250,6 +259,11 @@
                     <div class="content-header">
                         <h3>Quản lý người dùng</h3>
                     </div>
+                    <div class="add-btn">
+                        <button type="button" class="btn btn-success addSingerBtn">
+                            Thêm
+                        </button>
+                    </div>
                     <div class="content-table">
                         <table class="table">
                             <thead>
@@ -276,7 +290,8 @@
                         </table>
                     </div>
                 </div>
-
+                
+                <!-- category part -->
                 <div id="categoryManage" style="display: none;">
                     <div class="content-header">
                         <h3>Quản lý danh mục</h3>
