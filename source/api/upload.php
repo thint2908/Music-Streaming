@@ -53,10 +53,10 @@ if($isUpload == 1){
   $image = $fileImage;
   $res = $db -> prepare("Insert into music_list(name,singer_id,lyrics,description, category_id, url, image)
     values('".$name."',
-    (select id from singer where name = '".$singer."'),
+    '".$singer."',
     '".$lyrics."',
     '".$description."',
-    (select id from category where name = '".$category."'),
+    '".$category."',
     '".$url."',
     '".$image."'
     )
