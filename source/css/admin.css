@@ -12,7 +12,7 @@
 
 
 .side-part{
-    height: 100%;
+    height: fit-content;
     background-color: rgba(148, 187, 233, 1);
     border: 0.5px solid black;
 }
@@ -20,6 +20,7 @@
 .content-part{
     width: 101%;
     height: 100vh;
+    overflow: scroll;
     background-color: rgba(238, 174, 202, 0.3);
 }
 
@@ -40,9 +41,8 @@
 
 .side-content{
     margin: 15px 0;
-    width: 100%;
-    height: 40%;
     border-bottom: 1px solid black;
+    height: 30vh;
 }
 
 .side-content{
@@ -52,6 +52,7 @@
 }
 
 .side-content p{
+
     padding-bottom: 20px;
     font-size: 1.5rem;
     padding-left: 15px;
@@ -68,10 +69,6 @@ a:-webkit-any-link{
     height: 10%;
     padding-left: 15px;
     font-size: 1.5rem;
-}
-
-.content-search{
-    margin-left:15px ;
 }
 
 #inputSearch{
@@ -106,11 +103,11 @@ a:-webkit-any-link{
     display: flex;
     justify-content: center;
 }
-.song-table{
+/* .song-table{
     width: 100%;
     height: max-content;
     text-align: center;
-}
+} */
 
 
 #btnEdit{
@@ -138,4 +135,9 @@ a:-webkit-any-link{
     border: none;
     border-radius: 5px;
     background-color: #94bbe9;
+}
+body {
+	height: 2000px;
+	background: rgb(251, 150, 194);
+	background: radial-gradient(circle, rgba(251, 150, 194, 1) 7%, rgba(136, 183, 240, 1) 94%);
 }
