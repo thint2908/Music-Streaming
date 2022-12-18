@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 18, 2022 lúc 10:52 AM
+-- Thời gian đã tạo: Th12 18, 2022 lúc 03:42 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -43,7 +43,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `email`, `name`, `priority_id`) VALUES
-(1, 'admin', '123456', 'admin@gmail.com', '', 1);
+(1, 'admin', '123456', 'admin@gmail.com', '', 1),
+(2, 'customer', '123', 'user@gmail.com', 'Test User', 2);
 
 -- --------------------------------------------------------
 
@@ -61,11 +62,17 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(1, 'Bolero'),
+(1, 'Hiphop'),
 (2, 'Pop'),
 (3, 'Rock'),
 (4, 'Ballad'),
-(5, 'Rap');
+(5, 'Rap'),
+(6, 'Melody'),
+(7, 'Thi'),
+(8, ''),
+(9, ''),
+(10, ''),
+(11, '');
 
 -- --------------------------------------------------------
 
@@ -207,7 +214,7 @@ CREATE TABLE `singer` (
 --
 
 INSERT INTO `singer` (`id`, `name`, `image`) VALUES
-(1, 'MONO', 'img/singer/mono.jpg'),
+(1, 'MONO', './img/singer/mono.jpg'),
 (2, 'Sơn Tùng MTP', 'img/singer/sontung.jpg'),
 (3, 'Tăng Duy Tân', 'img/singer/tangduytan.jpg'),
 (4, 'HIEUTHUHAI', 'img/singer/hieuthuhai.jpg'),
@@ -274,13 +281,13 @@ ALTER TABLE `singer`
 -- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
@@ -310,7 +317,7 @@ ALTER TABLE `priority`
 -- AUTO_INCREMENT cho bảng `singer`
 --
 ALTER TABLE `singer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
