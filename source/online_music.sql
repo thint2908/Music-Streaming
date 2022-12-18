@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 18, 2022 lúc 03:42 PM
+-- Thời gian đã tạo: Th12 18, 2022 lúc 04:05 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -43,8 +43,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `email`, `name`, `priority_id`) VALUES
-(1, 'admin', '123456', 'admin@gmail.com', '', 1),
-(2, 'customer', '123', 'user@gmail.com', 'Test User', 2);
+(1, 'admin', '123456', 'admin@gmail.com', 'admin', 1),
+(2, 'user', '123456', 'user@gmail.com', 'Test User', 2);
 
 -- --------------------------------------------------------
 
