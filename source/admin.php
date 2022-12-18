@@ -259,33 +259,19 @@
                     <div class="content-header">
                         <h3>Quản lý người dùng</h3>
                     </div>
-                    <div class="add-btn">
-                        <button type="button" class="btn btn-success addSingerBtn">
-                            Thêm
-                        </button>
-                    </div>
                     <div class="content-table">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tên bài hát</th>
-                                    <th>Nghệ sĩ</th>
-                                    <th>Hình Ảnh</th>
+                                    <th>Tên người dùng</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
-                            <tbody id="singerBody">
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Tên bài hát</td>
-                                    <td>Nghệ sĩ</td>
-                                    <th>Hình Ảnh</th>
-                                    <th>
-                                        <button id="btnEdit"><a href="">Chỉnh sửa</a></button>
-                                        <button id="btnDel"><a href="">Xóa</a></button>
-                                    </th>
-                                </tr>
+                            <tbody id="songBody">
+                                <!-- chứa nhạc -->
                             </tbody>
                         </table>
                     </div>
