@@ -10,15 +10,15 @@ if ($_POST['name'] && $_POST['username'] && $_POST['password'] && $_POST['email'
     $userName = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
-    $sql_email = "SELECT * FROM account WHERE username = '$userName' or email = '$email'";
+    $sql_email = "SELECT * FROM account WHERE id = $id";
     $result = $db->query($sql_email);
-    if ($result->num_rows == 0) {
+    if ($result->num_rows != 0) {
         $res = $db -> prepare("update account set 
-        name = '".$name."',
-        username = ".$userName.",
-        password = '".$password."',
-        email = '".$email."'
-        where id =".$id
+        name = '$name',
+        username = '$userName',
+        password = '$password',
+        email = '$email'
+        where id =$id"
         );    
         if($res->execute()){
             echo json_encode(array("code" => 1, "message"=>"Sửa thành công"));

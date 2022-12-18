@@ -114,7 +114,6 @@ function show_singer(data){
             
             <td>
                 <button class="editSBtn btn btn-primary">Chỉnh sửa</button>
-                <button class="deleteSBtn btn btn-danger">Xóa</button>  
             </td>
         </tr>`;
         let opt=`<option value=${r.id}>${r.name}</option>`;
@@ -122,8 +121,38 @@ function show_singer(data){
         singer_update_list.append(opt);
         singerBody.append(tr);
     }
-
+    $(".editSBtn").click(function(){
+        let id = $(this).parent().parent().children()[0].innerText;
+        let name = $(this).parent().parent().children()[2].innerText;
+        $("#update-singer-id").val(id);
+        $("#update-singer-name").val(name);
+        $("#updateSingerModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
 }
+//singer update
+$("#updateSingerForm").submit(function(){
+    $.ajax({
+        type: 'POST',
+        url: './api/addCate.php',
+        data: $(this).serialize(),
+        success: function (response1) {
+            var jsonData1 = JSON.parse(response1);
+
+            // user is logged in successfully in the back-end
+            // let's redirect
+            if (jsonData1.code == "1") {
+                alert(jsonData1.message);
+                location.href = './admin.php';
+            }
+            else {
+            
+            }
+        }
+    });
+})
 
 //user part
 
@@ -180,9 +209,9 @@ function show_user(data){
     $(".editBtnUser").click(function(){
         let thisRow = $(this).parent().parent().children();
         let userID = thisRow[0].innerText;
-        let name = thisRow[1].innerText;
+        let username = thisRow[2].innerText;
         $("#update-user-id").val(userID);
-        $("#update-user-name").val(name);
+        $("#update-user-username").val(username);
         $("#updateUserModal").modal({
             backdrop: 'static',
             keyboard: false
@@ -422,5 +451,12 @@ $(document).ready(function() {
             }
         });
     })
+    $('.addSingerBtn').click(function(){
+        $("#addSingerModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
+    
 
 });

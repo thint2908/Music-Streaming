@@ -239,6 +239,9 @@ if (!isset($_SESSION['userName'])) {
                     <div class="content-header">
                         <h3>Quản lý ca sĩ</h3>
                     </div>
+                    <div>
+                        <button class="btn btn-success addSingerBtn">Thêm</button>
+                    </div>
                     <div class="content-table">
                         <table class="table">
                             <thead>
@@ -255,6 +258,67 @@ if (!isset($_SESSION['userName'])) {
                         </table>
                     </div>
                 </div>
+                <!-- modal singer -->
+                <!-- add singer modal -->
+
+                <div id="addSingerModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <form id="addSingerForm" class="form" action="api/addSinger.php" method="post" enctype="multipart/form-data">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Thêm</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="update-singer-name" class="form-label">Tên: </label>
+                                        <input type="text" id ="add-singer-name" class="form-control" name="update-singer-name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="update-singer-image" class="form-label">Hình: </label>
+                                        <input type="file" id ="add-singer-file" name="fileImage">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input class="btn btn-primary" type="submit" value="Thêm" >
+                                </div>
+
+                            </div>
+                        </form>
+                        <!-- Modal content-->
+                    </div>
+                </div>
+                <!-- update singer modal -->
+                <div id="updateSingerModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <form id="updateSingerForm" class="form" action="api/updateSinger.php" method="post" enctype="multipart/form-data">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Chỉnh Sửa Thông Tin Ca Sĩ</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" id="update-singer-id" name="update-singer-id" hidden>
+                                    <div class="md-3">
+                                        <label for="update-singer-name" class="form-label">Tên: </label>
+                                        <input type="text" id ="update-singer-name" name="update-singer-name">
+                                    </div>
+                                    <div class="md-3">
+                                        <label for="update-singer-image" class="form-label">Hình: </label>
+                                        <input type="file" id ="update-singer-file" name="fileImage">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input class="btn btn-primary" type="submit" value="Sửa" >
+                                </div>
+
+                            </div>
+                        </form>
+                        <!-- Modal content-->
+                    </div>
+                </div>
 
                 <!--user part-->
                 <div id="userManage" style="display: none;">
@@ -269,15 +333,16 @@ if (!isset($_SESSION['userName'])) {
                                     <th>Tên người dùng</th>
                                     <th>Username</th>
                                     <th>Password</th>
+                                    <th>Email</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody id="userBody">
-                                <!-- chứa nhạc -->
+                                <!-- chứa thông tin user -->
                             </tbody>
                         </table>
                     </div>
-                    <!-- modal sửa nhạc -->
+                    <!-- modal sửa user -->
                     <div id="updateUserModal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <form id="updateUserForm" class="form" action="api/updateUser.php" method="post" enctype="multipart/form-data">
@@ -295,7 +360,7 @@ if (!isset($_SESSION['userName'])) {
 
                                         <div class="mb-3">
                                             <label class="form-label" for="update-user-username">Username: </label>
-                                            <input class="form-control" type="text" name="username" id="update-user-username" required>
+                                            <input class="form-control" type="text" name="username" id="update-user-username" readonly>
                                         </div>
 
                                         <div class="mb-3">
@@ -305,7 +370,7 @@ if (!isset($_SESSION['userName'])) {
 
                                         <div class="mb-3">
                                             <label class="form-label" for="update-user-email">Email: </label>
-                                            <input class="form-control" type="text" name="email" id="update-user-email" required>
+                                            <input class="form-control" type="email" name="email" id="update-user-email" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -411,7 +476,7 @@ if (!isset($_SESSION['userName'])) {
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                        
+
                                 <div class="md-3">
                                     <label for="ca-add-name" class="form-label"> Tên thể loại: </label>
                                     <input type="text" class="form-control" name="caName" id="ca-add-name">
