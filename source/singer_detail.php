@@ -78,7 +78,7 @@ $_SESSION['idSinger'] = $_GET['id'];
 					</ul>
 					<span class="leftBody-title">My music</span>
 					<ul class="list-option">
-						<li class="leftBody-myMusic">Liked song</li>
+						<li class="leftBody-myMusic"><a class="text-decoration-none text-dark" href="Liked_song.php">Liked song</a></li>
 						<li class="leftBody-myMusic">Album</li>
 						<li class="leftBody-myMusic">Artist</li>
 						<li class="leftBody-myMusic">Recent</li>
