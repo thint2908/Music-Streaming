@@ -100,10 +100,28 @@ function show_singer(data){
     let singer_update_list = $("#update-song-singer")
     for(let i =0; i < data.length; i++){
         let r = data[i];
-        let tr = ``;
+        let tr = `<tr>
+            <td>
+                ${r.id}
+            </td>
+                
+            <td>
+            <image src=${r.image} width="100px" height="100px">
+            </td>
+           
+            <td>
+                ${r.name}
+            </td>
+            
+            <td>
+                <button class="editSBtn btn btn-primary">Chỉnh sửa</button>
+                <button class="deleteSBtn btn btn-danger">Xóa</button>  
+            </td>
+        </tr>`;
         let opt=`<option value=${r.id}>${r.name}</option>`;
         singer_add_list.append(opt);
         singer_update_list.append(opt);
+        singerBody.append(tr);
     }
 
 }

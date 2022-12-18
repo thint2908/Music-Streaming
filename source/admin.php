@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="content-part col-sm-9">
-            <div id="songManage">
+            <div id="songManage" style="display:block">
                 <div class="content-header">
                     <h3>Quản lý bài hát</h3>
                     <div class="musicManagerError">
@@ -223,7 +223,7 @@
             </div>
             <!--singer part-->
 
-            <div id="singerManage" style="display: none;">
+            <div id="singerManage" style="display: block;">
                 <div class="content-header">
                     <h3>Quản lý ca sĩ</h3>
                 </div>
@@ -238,7 +238,7 @@
                             </tr>
                         </thead>
                         <tbody id="singerBody">
-
+                            
                         </tbody>
                     </table>
                 </div>
