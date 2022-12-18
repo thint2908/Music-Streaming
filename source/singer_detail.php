@@ -24,6 +24,7 @@ if (isset($_SESSION['idSinger'])) {
 	<link rel="stylesheet" href="css/singer_detail.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel='shortcut icon' href='./icon/music.ico' /> 
 	<title>Singer Detail </title>
 </head>
 

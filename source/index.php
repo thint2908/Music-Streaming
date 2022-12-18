@@ -16,6 +16,7 @@ session_start();
 	<link rel="stylesheet" href="css/index.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel='shortcut icon' href='./icon/music.ico' /> 
 	<title>Music Online Page</title>
 </head>
 
