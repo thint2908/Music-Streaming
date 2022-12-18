@@ -10,15 +10,16 @@ if ($_POST['username-regist'] && $_POST['email-regist'] && $_POST['password-regi
     $passwordRegist = $_POST['password-regist'];
     $confirmPasswordRegist = $_POST['confirm-password-regist'];
 
-    $sql_email = "SELECT * FROM account WHERE email = '$emailRegist'";
+    $sql_email = "SELECT * FROM account WHERE email = '$emailRegist' or username = '$usernameRegist'";
     $result = $db->query($sql_email);
-    if (!($result->num_rows == '0')) {
-        $usernameCheck = $result->fetch_assoc()['username'];
-    } else {
-        $usernameCheck = '';
-    }
+    // if (!($result->num_rows == 0)) {
 
-    if ($result->num_rows == '0' && $usernameCheck != $usernameRegist) {
+    //     // $usernameCheck = $result->fetch_assoc()['username'];
+    // } else {
+    //     $usernameCheck = '';
+    // }
+
+    if ($result->num_rows == 0) {
         $sql = "insert into account(username, password, email) values(?,?,?)";
         $stm = $db->prepare($sql);
         $stm->bind_param('sss', $usernameRegist, $passwordRegist, $emailRegist);
