@@ -1,11 +1,8 @@
 <?php
 require_once("./api/connection.php");
 session_start();
-if (isset($_SESSION['idSinger'])) {
-	$_SESSION['idSinger'] = $_GET['id'];
-} else {
-	$_SESSION['idSinger'] = '';
-}
+$_SESSION['idSinger'] = $_GET['id'];
+echo $_SESSION['idSinger'];
 // echo $_SESSION['idSinger'];
 
 
@@ -24,7 +21,7 @@ if (isset($_SESSION['idSinger'])) {
 	<link rel="stylesheet" href="css/singer_detail.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
-	<link rel='shortcut icon' href='./icon/music.ico' /> 
+	<link rel='shortcut icon' href='./icon/music.ico' />
 	<title>Singer Detail </title>
 </head>
 
@@ -116,26 +113,16 @@ if (isset($_SESSION['idSinger'])) {
 							</div>
 						</div>
 					</div>
-					<div class="col-lg singer-button">
-						<div class="row">
-							<div class="col-lg-6 play-button">
-								<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
-									<path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" />
-								</svg>
-							</div>
-							<div class="col-lg-3 info">Lượt theo dõi: 123456789 </div>
-							<div class="col-lg-2 info">Đánh giá: 5/5</div>
-						</div>
-					</div>
+
 					<!-- <button type="button" class="btn btn-warning">Warning</button> -->
-					<h3 class="col-lg story-title">Câu chuyện của Vũ.</h3>
+					<h3 class="col-lg story-title mt-1"></h3>
 					<p class="col-lg singer-des">Trước khi nổi tiếng, Vũ. thường đăng tải các sáng tác của mình trên Soundcloud. Thể loại của anh theo đuổi là nhạc Indie Pop, Acoustic, Rock... .
 						Năm 2016, Vũ. phát hành các sáng tác của anh và gặt hái được thành công trong giới indie Việt. Các hit tiêu biểu của Vũ. với "Đông Kiếm Em", "Mùa Mưa Ngâu Nằm Cạnh", "Chuyện Những Người Yêu Xa", và album "Vũ Trụ Song Song" ra mắt năm 2019.
 						Năm 2020, Vũ. ký hợp đồng với Warner Music Group và trở thành nghệ sĩ trực thuộc công ty.</p>
 					<h3 class="col-lg popular-song">Bài hát phổ biến</h3>
 
 					<!-- list nhac pho bien -->
-					<div class="row list-song-singer" id="music-container">
+					<div class="row list-song-singer name-song" id="music-container-singer">
 						<!-- <div class="col-lg-5 song-list">
 							<div class="song-info">
 								<div class="song-name">Vì anh đâu có biết</div>

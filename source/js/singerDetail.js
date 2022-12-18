@@ -1,7 +1,8 @@
 function showListSong(response) {
+	console.log(response);
 	// let singerName = $("#singer-name");
 	let singerName;
-	let listSongSinger = $("#list-song-singer");
+	let listSongSinger = $("#music-container-singer");
 	for (let i = 0; i < response.length; i++) {
 		let row = response[i];
 		$("#singer-name").text(row.singer_name);

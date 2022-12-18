@@ -316,7 +316,7 @@ function playMusic(audio) {
 	function getCurrentSongList() {
 		urlList = [];
 		let songList = $(".song-list");
-		nameList = $("#music-container .song-name");
+		nameList = $(".name-song .song-name");
 		// console.log(nameList[0].id);
 		for (let element of songList) {
 			urlList.push(element.id);
