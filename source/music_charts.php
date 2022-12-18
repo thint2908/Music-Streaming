@@ -25,7 +25,7 @@
 			</div>
 			<div class="nav-right">
 				<div class="user-avatar">
-					<img src="./img/an-huynh.jpg" alt="" class="img-user" />
+					<img src="./img/music.jpg" alt="" class="img-user" />
 					<p class="user-name">User name</p>
 				</div>
 				<div class="nav-login d-inline">
@@ -108,7 +108,7 @@
 							<div class="row">
 								<div class="col-lg-4">
 									<div class="img-song">
-										<img src="./img/an-huynh.jpg" alt="an-huynh" />
+										<img src="./img/music.jpg" alt="music" />
 									</div>
 								</div>
 								<div class="col-lg song-text">
@@ -156,7 +156,7 @@
 									<div class="col-lg-2 text-end number">1</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -181,7 +181,7 @@
 									<div class="col-lg-2 text-end number">2</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -206,7 +206,7 @@
 									<div class="col-lg-2 text-end number">3</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -231,7 +231,7 @@
 									<div class="col-lg-2 text-end number">4</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -256,7 +256,7 @@
 									<div class="col-lg-2 text-end number">5</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -281,7 +281,7 @@
 									<div class="col-lg-2 text-end number">6</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -306,7 +306,7 @@
 									<div class="col-lg-2 text-end number">7</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -331,7 +331,7 @@
 									<div class="col-lg-2 text-end number">8</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -356,7 +356,7 @@
 									<div class="col-lg-2 text-end number">9</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -381,7 +381,7 @@
 									<div class="col-lg-2 text-end number">10</div>
 									<div class="col-lg-2 text-center dash">—</div>
 									<div class="col-lg-1">
-										<img class="song-logo" src="./img/an-huynh.jpg" />
+										<img class="song-logo" src="./img/music.jpg" />
 									</div>
 									<div class="col-lg-4 song-top20">
 										<div class="song-name">Vì anh đâu có biết</div>
@@ -423,53 +423,25 @@
 										<div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-										</div>
-									</div>
-									<div class="carousel-item">
-										<div class="list-body">
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
-												</div>
-												<div class="song-name">Đưa nhau đi trốn</div>
-											</div>
-											<div class="list-item">
-												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
@@ -479,25 +451,53 @@
 										<div class="list-body">
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
 											<div class="list-item">
 												<div class="img-song">
-													<img src="./img/an-huynh.jpg" alt="" />
+													<img src="./img/music.jpg" alt="" />
+												</div>
+												<div class="song-name">Đưa nhau đi trốn</div>
+											</div>
+										</div>
+									</div>
+									<div class="carousel-item">
+										<div class="list-body">
+											<div class="list-item">
+												<div class="img-song">
+													<img src="./img/music.jpg" alt="" />
+												</div>
+												<div class="song-name">Đưa nhau đi trốn</div>
+											</div>
+											<div class="list-item">
+												<div class="img-song">
+													<img src="./img/music.jpg" alt="" />
+												</div>
+												<div class="song-name">Đưa nhau đi trốn</div>
+											</div>
+											<div class="list-item">
+												<div class="img-song">
+													<img src="./img/music.jpg" alt="" />
+												</div>
+												<div class="song-name">Đưa nhau đi trốn</div>
+											</div>
+											<div class="list-item">
+												<div class="img-song">
+													<img src="./img/music.jpg" alt="" />
 												</div>
 												<div class="song-name">Đưa nhau đi trốn</div>
 											</div>
@@ -545,7 +545,7 @@
 		<div class="footer-body">
 			<div class="song-info">
 				<div class="img-song">
-					<img src="./img/an-huynh.jpg" alt="" />
+					<img src="./img/music.jpg" alt="" />
 				</div>
 				<div class="song-name">Đưa nhau đi trốn |</div>
 				<div class="song-author">Đen Vâu</div>
