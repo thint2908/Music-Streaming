@@ -2,7 +2,7 @@
 require_once("./api/connection.php");
 session_start();
 $_SESSION['idSinger'] = $_GET['id'];
-echo $_SESSION['idSinger'];
+// echo $_SESSION['idSinger'];
 // echo $_SESSION['idSinger'];
 
 
