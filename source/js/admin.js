@@ -160,14 +160,38 @@ function load_category(link){
 function show_category(data){
     let category_add = $("#add-song-category")
     let category_update = $("#update-song-category")
+    let category_body = $("#categoryBody")
     for(let i = 0; i < data.length; i++){
         let r = data[i];
         let opt =`
             <option value=${r.id}>${r.name}</option>
         `
+        let tr = `
+            <tr>
+                <td colspan="2">
+                    ${r.id}
+                </td>
+                <td colspan="8">
+                    ${r.name}
+                </td>
+                <td colspan="2">
+                    <button class="btn btn-primary editCaBtn">Chỉnh sửa</button>
+                    <button class="btn btn-warning deleteCaBtn">Xóa</button>
+                </td>
+            </tr>
+        `;
         category_add.append(opt);
         category_update.append(opt);
+        category_body.append(tr);
     }
+    $(".deleteCaBtn").click(function(){
+        let catId = $(this).parent().parent().children()[0].innerText;
+        let catName = $(this).parent().parent().children()[1].innerText;
+        $("#deleteCaModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
 }
 $(document).ready(function() {
 	//Phân trang

@@ -149,10 +149,10 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <div class="modal-body">
-                                        <input type="text" name="update-song-id" id="update-song-id" name="update-song-id">
+                                        <input type="text" name="update-song-id" id="update-song-id" name="update-song-id" hidden>
                                         <div class="mb-3">
                                             <label class="form-label" for="update-song-name">Tên bài hát: </label>
-                                            <input class="form-control" type="text" name="songName" id="update-song-name" placeholder="Nhập tên bài hát">
+                                            <input class="form-control" type="text" name="songName" id="update-song-name" readonly placeholder="Nhập tên bài hát">
                                         </div>
 
                                         <div class="mb-3">
@@ -300,32 +300,48 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Tên bài hát</th>
-                                    <th scope="col">Nghệ sĩ</th>
-                                    <th scope="col">Hình Ảnh</th>
-                                    <th scope="col">Thao tác</th>
+                                    <th colspan="2" >ID</th>
+                                    <th colspan="8" >Tên thể loại</th>
+                                    <th colspan="2" >Thao tác</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Tên bài hát</td>
-                                    <td>Nghệ sĩ</td>
-                                    <th>Hình Ảnh</th>
-                                    <th>
-                                        <button id="btnEdit"><a href="">Chỉnh sửa</a></button>
-                                        <button id="btnDel"><a href="">Xóa</a></button>
-                                    </th>
-                                </tr>
+                            <tbody id="categoryBody">
+                                <!-- chứa ds thể loại -->
                             </tbody>
                         </table>
                     </div>
                 </div>
 
             </div>
+            <div id="deleteCaModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <form id="deleteCaForm" class="form" action="" method="post" enctype="multipart/form-data">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xóa</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="md-3">
+                                            <label for="name" id="caDeleteText"></label>
+                                            <input type="text" name="caId" id="caId" hidden>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <input class="btn btn-primary" type="submit" value="Xóa" name="submit">
+                                    </div>
+
+                                </div>
+                            </form>
+                            <!-- Modal content-->
+                        </div>
+                    </div>
         </div>
+        <!-- end row -->
     </div>
+    <!-- end container -->
 
 
 </body>
