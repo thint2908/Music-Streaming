@@ -44,7 +44,7 @@ function show_music(data){
                 <td>
                     <button class="editBtn btn btn-primary">Chỉnh sửa</button>
                     <button class="deleteBtn btn btn-danger">Xóa</button>
-                </th>
+                </td>
             </tr>
         `
         songBody.append(tr);
