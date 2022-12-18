@@ -86,37 +86,45 @@ function show_top_music(response) {
 
 		let item = `
 											<div class="list-body">
-												<div class="list-item" onclick="playMusic(${response[countId].id})">
+											<div id="./musics/${response[countUrl].url}" class="list-item">
+												<div id="${response[countId].id}"  onclick="playListTopMusic(${response[countId].id})">
 												<div class="img-song">
 												<img src="${response[countImg].image}" alt="" />
 												</div>
-												<div class="song-name">${response[countName].name}</div>
-												<audio class='${response[count].name} | ${response[countSingerName].singer_name}'  id='${response[count].id}' src="./musics/${response[countUrl].url}" type='audio/mp3'>
+												<div id="${response[countName].name} | ${response[countSingerName].singer_name}" class="song-name">${response[countName].name}</div>
+												<audio class='${response[countName].name} | ${response[countSingerName].singer_name}'  id='${response[count].id}' src="./musics/${response[countUrl].url}" type='audio/mp3'>
 												</div>
+											</div>
 
-												<div class="list-item" onclick="playMusic(${response[countId++].id})">
+											<div id="./musics/${response[countUrl++].url}" class="list-item">
+												<div id="${response[countId++].id}"  onclick="playListTopMusic(${response[countId].id})">
 													<div class="img-song">
 														<img src="${response[countImg++].image}" alt="" />
 													</div>
-													<div class="song-name">${response[count++].name}</div>
-													<audio class='${response[count].name} | ${response[countSingerName++].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl++].url}" type='audio/mp3'>
+													<div id="${response[countName++].name} | ${response[countSingerName++].singer_name}" class="song-name">${response[countName].name}</div>
+													<audio class='${response[countName].name} | ${response[countSingerName].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl].url}" type='audio/mp3'>
 												</div>
+											</div>
 
-												<div class="list-item" onclick="playMusic(${response[countId++].id})">
+											<div id="./musics/${response[countUrl++].url}" class="list-item">
+												<div id="${response[countId++].id}"  onclick="playListTopMusic(${response[countId].id})">
 													<div class="img-song">
 														<img src="${response[countImg++].image}" alt="" />
 													</div>
-													<div class="song-name">${response[count++].name}</div>
-													<audio class='${response[count].name} | ${response[countSingerName++].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl++].url}" type='audio/mp3'>
+													<div id="${response[countName++].name} | ${response[countSingerName++].singer_name}" class="song-name">${response[countName].name}</div>
+													<audio class='${response[countName].name} | ${response[countSingerName].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl].url}" type='audio/mp3'>
 												</div>
+											</div>
 
-												<div class="list-item" onclick="playMusic(${response[countId++].id})">
+											<div id="./musics/${response[countUrl++].url}" class="list-item">
+												<div id="${response[countId++].id}"  onclick="playListTopMusic(${response[countId].id})">
 													<div class="img-song">
 														<img src="${response[countImg++].image}" alt="" />
 													</div>
-													<div class="song-name">${response[count++].name}</div>
-													<audio class='${response[count].name} | ${response[countSingerName++].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl++].url}" type='audio/mp3'>
+													<div id="${response[countName++].name} | ${response[countSingerName++].singer_name}" class="song-name">${response[countName].name}</div>
+													<audio class='${response[countName].name} | ${response[countSingerName].singer_name}'  id='${response[countId].id}' src="./musics/${response[countUrl].url}" type='audio/mp3'>
 												</div>
+											</div>
 											</div>
 											
 										
@@ -285,14 +293,7 @@ function playMusic(audio) {
 		music.pause();
 		isPlaying = true;
 	}
-	// Array.from(document.getElementsByClassName("song-list")).forEach((element) => {
-	// 	element.addEventListener("click", (e) => {
-	// 		url = e.target.getAttribute("id");
-	// 		console.log(url);
-	// 		music.src = "./musics/ducphuc/traidatdepnhatkhicoem.mp3";
-	// 		music.play();
-	// 	});
-	// });
+
 	// handle click button play/pause
 
 	// handle audio time range change
@@ -321,6 +322,7 @@ function playMusic(audio) {
 		for (let element of songList) {
 			urlList.push(element.id);
 		}
+		console.log(urlList);
 		currIndex = "." + url.src.slice(33);
 		for (let i = 0; i < urlList.length; i++) {
 			if (urlList[i] == currIndex) {
@@ -339,6 +341,107 @@ function playMusic(audio) {
 		if (index >= urlList.length) {
 			index = 0;
 		}
+		music.src = urlList[index];
+		music.play();
+		isPlaying = false;
+		$(".footer .song-name").text(nameList[index].id);
+	});
+	prevBtn.click(function (e) {
+		if ($("#play-btn").css("display") === "inline-block") {
+			$("#play-btn").css("display", "none");
+		}
+		$("#pause-btn").css("display", "inline-block");
+		index--;
+		if (index < 0) {
+			index = urlList.length - 1;
+		}
+		music.src = urlList[index];
+		music.play();
+		isPlaying = false;
+		$(".footer  .song-name").text(nameList[index].id);
+	});
+}
+function playListTopMusic(audio) {
+	//handle click on music in list song singer
+	let url = document.getElementById(audio);
+	music.src = url.src;
+
+	// handle name footer
+	let nameTmp = url.classList;
+	// let nameTmp = $(".list-item .song-name");
+	// console.log(nameTmp[0].id);
+	let nameFooter = "";
+
+	nameTmp.forEach((element) => {
+		nameFooter += element + " ";
+		// console.log(nameFooter);
+	});
+	// ./ handle name footer
+	$(".footer  .song-name").text(nameFooter);
+	// imgSingerFooter.attr("src", "." + document.getElementById("img-singer").src.slice(33));
+	isPlaying = true;
+	// music.load();
+	if (isPlaying) {
+		$("#play-btn").css("display", "none");
+		$("#pause-btn").css("display", "inline-block");
+		music.play();
+		isPlaying = false;
+	} else {
+		$("#pause-btn").css("display", "none");
+		$("#play-btn").css("display", "inline-block");
+
+		music.pause();
+		isPlaying = true;
+	}
+
+	// handle click button play/pause
+
+	// handle audio time range change
+	rangeBar.addEventListener("onchange", handleChangeBar);
+	function handleChangeBar() {}
+	function displayTimer() {
+		let { duration, currentTime } = music;
+		rangeBar.value = currentTime;
+		rangeBar.max = duration;
+		songTotalTime.text(formatTimer(duration));
+		songCurrTime.text(formatTimer(currentTime));
+	}
+
+	setInterval(() => {
+		displayTimer();
+		if (music.currentTime > music.duration - 0.05) {
+			nextBtn.click();
+		}
+	}, 500);
+	let index;
+	function getCurrentSongList() {
+		urlList = [];
+		let songList = $(".list-item");
+		nameList = $(".list-item .song-name");
+		// console.log(nameList[0].id);
+		for (let element of songList) {
+			urlList.push(element.id);
+		}
+		// console.log(urlList);
+		currIndex = "." + url.src.slice(33);
+		for (let i = 0; i < urlList.length; i++) {
+			if (urlList[i] == currIndex) {
+				index = i;
+			}
+		}
+	}
+	getCurrentSongList();
+
+	nextBtn.click(function (e) {
+		if ($("#play-btn").css("display") === "inline-block") {
+			$("#play-btn").css("display", "none");
+		}
+		$("#pause-btn").css("display", "inline-block");
+		index++;
+		if (index >= urlList.length) {
+			index = 0;
+		}
+		console.log(urlList[index]);
 		music.src = urlList[index];
 		music.play();
 		isPlaying = false;
