@@ -25,27 +25,26 @@ function show_music(data){
             <tr>
                 <td>
                     ${r.id}
-                </th>
+                </td>
                 
                 <td>
                     ${r.name}
-                </th>
-                
+                </td>               
                 <td>
                     ${r.singer_name}
-                </th>
+                </td>
                 
                 <td>
                     ${r.category_name}
-                </th>
+                </td>
                 
                 <td>
                     <img src=${r.image} width="100px" height="100px">
-                </th>
+                </td>
                 <td>
                     <button class="editBtn btn btn-primary">Chỉnh sửa</button>
                     <button class="deleteBtn btn btn-danger">Xóa</button>
-                </th>
+                </td>
             </tr>
         `
         songBody.append(tr);
@@ -141,6 +140,64 @@ function load_user(link) {
 	});
 }
 
+function show_user(data){
+    let userBody = $("#userBody");
+    for(let i = 0; i < data.length; i++){
+        let r = data[i];
+        
+        let tr = `
+            <tr>
+                <td>
+                    ${r.id}
+                </td>
+                
+                <td>
+                    ${r.name}
+                </td>               
+                <td>
+                    ${r.username}
+                </td>
+                
+                <td>
+                    ${r.password}
+                </td>
+                
+                <td>
+                    <button class="editBtnUser btn btn-primary">Chỉnh sửa</button>
+                    <button class="deleteBtnUser btn btn-danger">Xóa</button>
+                </td>
+            </tr>
+        `
+        userBody.append(tr);
+    }
+    //active 2 button above
+
+    //edit btn
+    // $(".editBtnUser").click(function(){
+    //     let thisRow = $(this).parent().parent().children();
+    //     let userID = thisRow[0].innerText;
+    //     let userName = thisRow[1].innerText;
+    //     $("#update-song-name").val(songName);
+    //     $("#update-song-id").val(userName);
+    //     $("#updateMusicModal").modal({
+    //         backdrop: 'static',
+    //         keyboard: false
+    //     });
+    // })
+
+    //delete button
+    // $(".deleteBtnUser").click(function(){
+    //     let userID = $(this).parent().parent().children()[0].innerText;
+    //     let userName = $(this).parent().parent().children()[1].innerText;
+    //     $("#songId").val(userID);
+    //     $("#songDeleteText").html("Bạn có muốn xóa \"" +userName+"\" ra khỏi danh sách");
+    //     $("#deleteMusicModal").modal({
+    //         backdrop: 'static',
+    //         keyboard: false
+    //     });
+    // })
+
+}
 
 //category part
 
@@ -203,6 +260,7 @@ $(document).ready(function() {
 	//Phân trang
     load_music("./api/adminController/loadMusic.php");
     load_singer("./api/adminController/loadSinger.php")
+    load_user("./api/adminController/LoadUser.php");
     load_category("./api/adminController/loadCategory.php");
 
     $("#song").click(function(){

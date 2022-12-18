@@ -21,6 +21,7 @@ if (!isset($_SESSION['userName'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel='shortcut icon' href='./icon/music.ico' />
 </head>
 
 <body>
@@ -260,33 +261,19 @@ if (!isset($_SESSION['userName'])) {
                     <div class="content-header">
                         <h3>Quản lý người dùng</h3>
                     </div>
-                    <div class="add-btn">
-                        <button type="button" class="btn btn-success addSingerBtn">
-                            Thêm
-                        </button>
-                    </div>
                     <div class="content-table">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tên bài hát</th>
-                                    <th>Nghệ sĩ</th>
-                                    <th>Hình Ảnh</th>
+                                    <th>Tên người dùng</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
-                            <tbody id="singerBody">
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Tên bài hát</td>
-                                    <td>Nghệ sĩ</td>
-                                    <th>Hình Ảnh</th>
-                                    <th>
-                                        <button id="btnEdit"><a href="">Chỉnh sửa</a></button>
-                                        <button id="btnDel"><a href="">Xóa</a></button>
-                                    </th>
-                                </tr>
+                            <tbody id="userBody">
+                                <!-- chứa nhạc -->
                             </tbody>
                         </table>
                     </div>
