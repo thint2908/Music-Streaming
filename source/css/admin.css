@@ -82,3 +82,7 @@ body {
 	margin-left: 16px;
 	margin-bottom: 4px;
 }
+.musicManagerError {
+	font-size: 14px;
+	color: green;
+}
