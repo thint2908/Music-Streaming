@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="css/music_charts.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" />
 	<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel='shortcut icon' href='./icon/music.ico' />
 	<title>Singer Detail </title>
 </head>
 
