@@ -271,7 +271,7 @@
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
-                            <tbody id="songBody">
+                            <tbody id="userBody">
                                 <!-- chứa nhạc -->
                             </tbody>
                         </table>

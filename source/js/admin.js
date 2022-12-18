@@ -254,6 +254,7 @@ $(document).ready(function() {
 	//Phân trang
     load_music("./api/adminController/loadMusic.php");
     load_singer("./api/adminController/loadSinger.php")
+    load_user("./api/adminController/LoadUser.php");
     load_category("./api/adminController/loadCategory.php");
 
     $("#song").click(function(){
