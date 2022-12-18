@@ -42,18 +42,18 @@ if (!isset($_SESSION['userName'])) {
                 </div>
             </div>
             <div class="content-part col-lg-9">
+                <div class="musicManagerError">
+                    <?php if (isset($_GET['success'])) {
+                        echo $_GET['success'];
+                    }
+                    if (isset($_GET['error'])) {
+                        echo $_GET['error'];
+                    }
+                    ?>
+                </div>
                 <div id="songManage" style="display:block">
                     <div class="content-header">
                         <h3>Quản lý bài hát</h3>
-                        <div class="musicManagerError">
-                            <?php if (isset($_GET['success'])) {
-                                echo $_GET['success'];
-                            }
-                            if (isset($_GET['error'])) {
-                                echo $_GET['error'];
-                            }
-                            ?>
-                        </div>
                     </div>
                     <div class="add-btn">
                         <button type="button" class="btn btn-success addMusicBtn">
@@ -276,6 +276,72 @@ if (!isset($_SESSION['userName'])) {
                                 <!-- chứa nhạc -->
                             </tbody>
                         </table>
+                    </div>
+                    <!-- modal sửa nhạc -->
+                    <div id="updateUserModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <form id="updateUserForm" class="form" action="api/updateUser.php" method="post" enctype="multipart/form-data">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Chỉnh Sửa người dùng</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" id="update-user-id" name="update-user-id" hidden>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="update-user-name">Tên người dùng: </label>
+                                            <input class="form-control" type="text" name="name" id="update-user-name" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="update-user-username">Username: </label>
+                                            <input class="form-control" type="text" name="username" id="update-user-username" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="update-user-password">Password: </label>
+                                            <input class="form-control" type="text" name="password" id="update-user-password" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label class="form-label" for="update-user-email">Email: </label>
+                                            <input class="form-control" type="text" name="email" id="update-user-email" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <input class="btn btn-primary" type="submit" value="Sửa" name="updateUserBtn">
+                                    </div>
+
+                                </div>
+                            </form>
+                            <!-- Modal content-->
+                        </div>
+                    </div>
+                    <!-- End modal update music -->
+                    <div id="deleteUserModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <form id="deleteUserForm" class="form" action="" method="post" enctype="multipart/form-data">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xóa user</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="md-3">
+                                            <label for="name" id="userDeleteText"></label>
+                                            <input type="text" name="userId" id="userId" hidden>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <input class="btn btn-primary" type="submit" value="Xóa" name="submit">
+                                    </div>
+
+                                </div>
+                            </form>
+                            <!-- Modal content-->
+                        </div>
                     </div>
                 </div>
 
