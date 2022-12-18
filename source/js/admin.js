@@ -114,7 +114,6 @@ function show_singer(data){
             
             <td>
                 <button class="editSBtn btn btn-primary">Chỉnh sửa</button>
-                <button class="deleteSBtn btn btn-danger">Xóa</button>  
             </td>
         </tr>`;
         let opt=`<option value=${r.id}>${r.name}</option>`;
@@ -122,8 +121,38 @@ function show_singer(data){
         singer_update_list.append(opt);
         singerBody.append(tr);
     }
-
+    $(".editSBtn").click(function(){
+        let id = $(this).parent().parent().children()[0].innerText;
+        let name = $(this).parent().parent().children()[2].innerText;
+        $("#update-singer-id").val(id);
+        $("#update-singer-name").val(name);
+        $("#updateSingerModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
 }
+//singer update
+$("#updateSingerForm").submit(function(){
+    $.ajax({
+        type: 'POST',
+        url: './api/addCate.php',
+        data: $(this).serialize(),
+        success: function (response1) {
+            var jsonData1 = JSON.parse(response1);
+
+            // user is logged in successfully in the back-end
+            // let's redirect
+            if (jsonData1.code == "1") {
+                alert(jsonData1.message);
+                location.href = './admin.php';
+            }
+            else {
+            
+            }
+        }
+    });
+})
 
 //user part
 
@@ -163,6 +192,10 @@ function show_user(data){
                 </td>
                 
                 <td>
+                    ${r.email}
+                </td>
+
+                <td>
                     <button class="editBtnUser btn btn-primary">Chỉnh sửa</button>
                     <button class="deleteBtnUser btn btn-danger">Xóa</button>
                 </td>
@@ -172,30 +205,31 @@ function show_user(data){
     }
     //active 2 button above
 
-    //edit btn
-    // $(".editBtnUser").click(function(){
-    //     let thisRow = $(this).parent().parent().children();
-    //     let userID = thisRow[0].innerText;
-    //     let userName = thisRow[1].innerText;
-    //     $("#update-song-name").val(songName);
-    //     $("#update-song-id").val(userName);
-    //     $("#updateMusicModal").modal({
-    //         backdrop: 'static',
-    //         keyboard: false
-    //     });
-    // })
+    //update button
+    $(".editBtnUser").click(function(){
+        let thisRow = $(this).parent().parent().children();
+        let userID = thisRow[0].innerText;
+        let username = thisRow[2].innerText;
+        $("#update-user-id").val(userID);
+        $("#update-user-username").val(username);
+        $("#updateUserModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    })
 
     //delete button
-    // $(".deleteBtnUser").click(function(){
-    //     let userID = $(this).parent().parent().children()[0].innerText;
-    //     let userName = $(this).parent().parent().children()[1].innerText;
-    //     $("#songId").val(userID);
-    //     $("#songDeleteText").html("Bạn có muốn xóa \"" +userName+"\" ra khỏi danh sách");
-    //     $("#deleteMusicModal").modal({
-    //         backdrop: 'static',
-    //         keyboard: false
-    //     });
-    // })
+    $(".deleteBtnUser").click(function(){
+        let userID = $(this).parent().parent().children()[0].innerText;
+        let name = $(this).parent().parent().children()[1].innerText;
+        let email = $(this).parent().parent().children()[4].innerText;
+        $("#userId").val(userID);
+        $("#userDeleteText").html("Bạn có muốn xóa người dùng có tên \"" +name+"\" có email \"" +email+"\" ra khỏi danh sách");
+        $("#deleteUserModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    })
 
 }
 
@@ -373,4 +407,56 @@ $(document).ready(function() {
             }
         });
     })
+
+    //xử lý xóa user
+    $("#deleteUserForm").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: './api/adminController/deleteUser.php',
+            data: $(this).serialize(),
+            success: function (response1) {
+                var jsonData1 = JSON.parse(response1);
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData1.code == "1") {
+                    alert(jsonData1.message);
+                    location.href = './admin.php';
+                }
+                else {
+                
+                }
+            }
+        });
+    })
+
+    //update user
+    $("#updateUserBtn").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: './api/updateUser.php',
+            data: $(this).serialize(),
+            success: function (response1) {
+                var jsonData1 = JSON.parse(response1);
+
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData1.code == "1") {
+                    alert(jsonData1.message);
+                    location.href = './admin.php';
+                }
+                else {
+                
+                }
+            }
+        });
+    })
+    $('.addSingerBtn').click(function(){
+        $("#addSingerModal").modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
+    
+
 });
